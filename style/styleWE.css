@@ -777,12 +777,12 @@ table {
 @media (max-width: 600px) {
     th:nth-child(1),
     td:nth-child(1) {
-        width: 30%;
+        width: 35%;
     }
 
     th:nth-child(2),
     td:nth-child(2) {
-        width: 70%;
+        width: 65%;
     }
 }
 
