@@ -1,0 +1,60 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Splash Container */
+.splash {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(
+    circle at top,
+    #1e90ff 0%,
+    #0a4dbf 60%,
+    #062a6e 100%
+  );
+
+  text-align: center;
+}
+
+/* Logo */
+.splash img {
+  width: 55vw;
+  max-width: 320px;
+  min-width: 180px;
+}
+
+/* Subline */
+.splash span {
+  margin-top: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: #ffffffcc;
+  letter-spacing: 0.05em;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .splash img {
+    max-width: 420px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .splash {
+    background: linear-gradient(135deg, #0a4dbf, #05204f);
+  }
+
+  .splash img {
+    max-width: 480px;
+  }
+}
