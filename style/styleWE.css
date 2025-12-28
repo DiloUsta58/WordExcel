@@ -15,6 +15,12 @@ h1, h2 {
     margin-top: 32px;
 }
 
+.table-container {
+    width: 100%; /* Stellt sicher, dass der Container die volle Breite nutzt */
+    overflow-x: auto; /* Erlaubt horizontales Scrollen, wenn die Tabelle breiter als der Bildschirm ist */
+    margin: 18px 0; /* Passt den Abstand an */
+}
+
 /* Tabellen-Layout (deins, leicht ergänzt) */
 table {
     border-collapse: collapse;
@@ -93,12 +99,13 @@ table.science td {
 }
 
 
-/* Einheitliche Spaltenbreite */
+/* Einheitliche Spaltenbreite (entfernt feste 50% Breite für bessere Skalierung) */
 table th,
 table td {
-    width: 50%;
+    /* width: 50%; */ /* Besser dem Inhalt überlassen oder dynamisch anpassen */
     box-sizing: border-box;
 }
+
 
 /* Aufklapp‑Funktion */
 /* Caption klickbar machen */
@@ -739,6 +746,14 @@ table {
 /* =========================================
    MOBILE (Handy)
    ========================================= */
+@media (max-width: 600px) { /* Passt Stile für Bildschirme bis 600px Breite an */
+    body {
+        font-size: 14px; /* Beispiel: kleinere Basisschriftgröße für Handys */
+    }
+    th, td {
+        padding: 8px; /* Weniger Polsterung für mehr Platz */
+    }
+}
 
    /* 1. Textumbrüche aktivieren (wichtig!) */
 @media (max-width: 600px) {
@@ -858,6 +873,7 @@ table {
 
     th, td {
         padding: 10px 14px;
+        width: 50%;
     }
 
     table caption::before {
