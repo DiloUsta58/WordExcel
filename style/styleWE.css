@@ -742,59 +742,66 @@ table {
 
    /* 1. Textumbrüche aktivieren (wichtig!) */
 @media (max-width: 600px) {
+
     table {
-        table-layout: fixed;
         width: 100%;
+        table-layout: fixed; /* erzwingt Umbrüche */
+        border-collapse: collapse;
     }
 
     th, td {
-        white-space: normal !important;
-        word-wrap: break-word;
+        white-space: normal !important; /* erlaubt Umbrüche */
         word-break: break-word;
-        padding: 8px 10px;
+        overflow-wrap: break-word;
+        padding: 10px 12px;
     }
 }
 
+
 /* 2. Spaltenbreiten optimieren */
 @media (max-width: 600px) {
-    td:nth-child(1),
-    th:nth-child(1) {
+    th:nth-child(1),
+    td:nth-child(1) {
         width: 30%;
     }
 
-    td:nth-child(2),
-    th:nth-child(2) {
+    th:nth-child(2),
+    td:nth-child(2) {
         width: 70%;
     }
 }
 
+
 /* 3. Schriftgrößen für mobile optimieren */
 @media (max-width: 600px) {
+
     table {
-        font-size: 14px;
+        font-size: clamp(13px, 2.5vw, 16px);
     }
 
     th {
-        font-size: 15px;
+        font-size: clamp(14px, 3vw, 18px);
     }
 
     caption {
-        font-size: 18px;
+        font-size: clamp(16px, 4vw, 22px);
     }
 }
+
 
 /* 4. Tabellenränder und Abstände verbessern */
 @media (max-width: 600px) {
     table {
         border-radius: 8px;
-        overflow: hidden;
         border: 1px solid #ddd;
+        overflow: hidden;
     }
 
     th, td {
         padding: 10px 12px;
     }
 }
+
 
 /* Icons in Caption verkleinern */
 @media (max-width: 600px) {
@@ -804,6 +811,7 @@ table {
         margin-right: 6px;
     }
 }
+
 
 
 /* =========================================
