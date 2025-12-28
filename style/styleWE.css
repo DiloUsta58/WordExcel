@@ -713,6 +713,126 @@ table {
     page-break-inside: avoid;
     break-inside: avoid;
 }
+@media print {
+
+    /* Tabellen zusammenhalten, aber nicht jede auf neuer Seite */
+    table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+
+    /* Entferne den harten Seitenumbruch */
+    /* page-break-before: always;  <-- löschen */
+}
+/* =========================================
+   MOBILE (Handy)
+   ========================================= */
+@media (max-width: 600px) {
+
+    /* Tabs horizontal scrollbar */
+    .tab-btn {
+        flex: 0 0 auto;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .tab-navigation {
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 6px;
+    }
+
+    /* Tabellen */
+    table {
+        font-size: 13px;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        border-spacing: 0;
+    }
+
+    th, td {
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+
+    /* Caption Icons kleiner */
+    table caption::before {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+
+    /* Suchfeld */
+    .search-container {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    /* PDF Button unten */
+    #pdfExportBtn {
+        width: 100%;
+        margin-top: 12px;
+    }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .tab-btn {
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    table caption::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    #pdfExportBtn {
+        float: right;
+    }
+}
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+@media (min-width: 1025px) {
+
+    .tab-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 10px 14px;
+    }
+
+    table caption::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    #pdfExportBtn {
+        float: right;
+    }
+}
 
 
 
