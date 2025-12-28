@@ -1,0 +1,21 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Word Icon</title>
+  <desc id="desc">Minimalistisches Word-Logo mit blauem Quadrat und Buchstabe W</desc>
+  <defs>
+    <linearGradient id="word-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1565c0"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect x="24" y="24" width="208" height="208" rx="32" ry="32" fill="url(#word-bg)"/>
+
+  <!-- Hellere linke Seite -->
+  <rect x="40" y="56" width="88" height="144" rx="12" ry="12" fill="#1357a3" opacity="0.9"/>
+
+  <!-- W -->
+  <g fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="68,92 80,164 96,120 112,164 124,92"/>
+  </g>
+</svg>

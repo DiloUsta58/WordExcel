@@ -1,0 +1,31 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Science Icon</title>
+  <desc id="desc">Minimalistisches Wissenschafts-Icon mit orangem Hintergrund und stilisiertem Atom</desc>
+  <defs>
+    <linearGradient id="science-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef6c00"/>
+      <stop offset="100%" stop-color="#e65100"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect x="24" y="24" width="208" height="208" rx="32" ry="32" fill="url(#science-bg)"/>
+
+  <!-- Atom-Orbits -->
+  <g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.95">
+    <!-- Horizontaler Orbit -->
+    <ellipse cx="128" cy="128" rx="70" ry="38" />
+    <!-- Vertikaler Orbit 1 -->
+    <ellipse cx="128" cy="128" rx="70" ry="38" transform="rotate(60 128 128)" />
+    <!-- Vertikaler Orbit 2 -->
+    <ellipse cx="128" cy="128" rx="70" ry="38" transform="rotate(-60 128 128)" />
+  </g>
+
+  <!-- Kern -->
+  <circle cx="128" cy="128" r="14" fill="#ffffff"/>
+
+  <!-- Elektronen -->
+  <circle cx="198" cy="128" r="7" fill="#ffffff"/>
+  <circle cx="82" cy="96" r="7" fill="#ffffff"/>
+  <circle cx="86" cy="168" r="7" fill="#ffffff"/>
+</svg>

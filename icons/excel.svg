@@ -1,0 +1,22 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Excel Icon</title>
+  <desc id="desc">Minimalistisches Excel-Logo mit grünem Quadrat und Buchstabe X</desc>
+  <defs>
+    <linearGradient id="excel-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2e7d32"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect x="24" y="24" width="208" height="208" rx="32" ry="32" fill="url(#excel-bg)"/>
+
+  <!-- Hellere linke Seite (Panel) -->
+  <rect x="40" y="56" width="88" height="144" rx="12" ry="12" fill="#1f6b28" opacity="0.9"/>
+
+  <!-- X -->
+  <g fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round">
+    <line x1="120" y1="88" x2="196" y2="168"/>
+    <line x1="196" y1="88" x2="120" y2="168"/>
+  </g>
+</svg>
