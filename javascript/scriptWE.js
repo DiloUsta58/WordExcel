@@ -1,8 +1,47 @@
+
+//--  Alles geschlossen  / Nur 1 Tabelle bleibt offen --
+// document.querySelectorAll("table.collapsible > caption").forEach(caption => {
+//     caption.addEventListener("click", () => {
+//         const clickedTable = caption.parentElement;
+//         // 1. Alle anderen Tabellen schließen
+//         document.querySelectorAll("table.collapsible").forEach(table => {
+//             if (table !== clickedTable) {
+//                 table.classList.add("collapsed");
+//             }
+//         });
+//         // 2. Geklickte Tabelle toggeln
+//         clickedTable.classList.toggle("collapsed");
+//     });
+// });
+
+
+// window.addEventListener("DOMContentLoaded", () => {
+//     document.querySelectorAll("table.collapsible").forEach(table => {
+//         table.classList.add("collapsed");
+//     });
+// });
+
+
+//--  Normalzustand  / Anfang zu bleibt dann beim klicken auf--
 document.querySelectorAll("table.collapsible > caption").forEach(caption => {
     caption.addEventListener("click", () => {
-        caption.parentElement.classList.toggle("collapsed");
+       caption.parentElement.classList.toggle("collapsed");
     });
 });
+
+//Wenn Alles geschlossen geladen soll
+// window.addEventListener("DOMContentLoaded", () => {
+//    document.querySelectorAll("table.collapsible").forEach(table => {
+//        table.classList.add("collapsed");
+//     });
+// });
+
+
+
+
+
+
+
 
 
 // --- TAB SWITCHER ---

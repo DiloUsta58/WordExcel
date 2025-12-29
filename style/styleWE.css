@@ -18,6 +18,7 @@ h1, h2 {
     margin-top: 32px;
 }
 
+
 .table-container {
     width: 100%; /* Stellt sicher, dass der Container die volle Breite nutzt */
     overflow-x: auto; /* Erlaubt horizontales Scrollen, wenn die Tabelle breiter als der Bildschirm ist */
@@ -52,6 +53,18 @@ kbd {
     font-family: "Segoe UI", monospace;
     font-size: 0.95em;
 }
+
+/* table.collapsible tbody {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height .3s ease;
+}
+
+table.collapsible.collapsed tbody {
+    max-height: 0;
+} */
+
+
 
 /* Excel – Grün */
 table.excel caption {
@@ -157,30 +170,30 @@ table.collapsible.collapsed tbody {
 
 /* Excel (grün) */
 table.excel {
-    --theme-bg: #2e7d32;
-    --theme-bg-dark: #1b5e20;
-    --theme-text: #ffffff;
+   /* --theme-bg: #2e7d32;
+    --theme-bg-dark: #1b5e20; */
+    --theme-text: #1b5e20;
 }
 
 /* Word (blau) */
 table.word {
-    --theme-bg: #1565c0;
-    --theme-bg-dark: #0d47a1;
-    --theme-text: #ffffff;
+    /*--theme-bg: #1565c0;
+    --theme-bg-dark: #0d47a1; */
+    --theme-text: #1565c0;
 }
 
 /* Expert (orange) */
 table.expert {
-    --theme-bg: #1565c0;
-    --theme-bg-dark: #0d47a1;
-    --theme-text: #ffffff;
+    /*--theme-bg: #1565c0;
+    --theme-bg-dark: #0d47a1;*/
+    --theme-text: #0d47a1;
 }
 
 /* Wissenschaft (orange) */
 table.science {
-    --theme-bg: #1565c0;
-    --theme-bg-dark: #0d47a1;
-    --theme-text: #ffffff;
+    /*--theme-bg: #1565c0;
+    --theme-bg-dark: #0d47a1;*/
+    --theme-text: #0d47a1;
 }
 
 table.collapsible > caption {
