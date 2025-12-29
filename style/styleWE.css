@@ -1,6 +1,9 @@
 
 :root {
     --Isim_Anlam_Ayet:#c9a44d;
+    --excel-color: #217346;
+    --word-color: #2b579a;
+    --pp-color: #b7472a;
 }
 /* Allgemein */
 body {
@@ -97,7 +100,17 @@ table.science th {
 table.science td {
     border-color: #7fb0ff;
 }
+.tab-btn.active { opacity: 1; transform: scale(1.05); }
+.word-theme { border-color: var(--word-color); color: var(--word-color); }
+.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
+.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
 
+.category-title {
+    margin-top: 25px;
+    padding: 8px;
+    border-left: 4px solid #ccc;
+    font-size: 1.1rem;
+}
 
 /* Einheitliche Spaltenbreite (entfernt feste 50% Breite für bessere Skalierung) */
 table th,
