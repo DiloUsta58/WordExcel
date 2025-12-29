@@ -100,17 +100,19 @@ table.science th {
 table.science td {
     border-color: #7fb0ff;
 }
-.tab-btn.active { opacity: 1; transform: scale(1.05); }
-.word-theme { border-color: var(--word-color); color: var(--word-color); }
-.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
-.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
 
+/* Überschrift */
 .category-title {
     margin-top: 25px;
     padding: 8px;
     border-left: 4px solid #ccc;
     font-size: 1.1rem;
 }
+
+.word-theme { border-color: var(--word-color); color: var(--word-color); }
+.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
+.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
+
 
 /* Einheitliche Spaltenbreite (entfernt feste 50% Breite für bessere Skalierung) */
 table th,
