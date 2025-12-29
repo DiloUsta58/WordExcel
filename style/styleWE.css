@@ -324,6 +324,7 @@ p.note {
     font-weight: bold;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
 }
+
 .tab-btn:hover {
     transform: translateY(-1px);
 }
@@ -336,6 +337,28 @@ p.note {
     width: 20px;
     height: 20px;
     pointer-events: none;
+}
+
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.pdf-btn:hover {
+    transform: translateY(-1px);
+}
+.pdf-btn.active {
+    background: #0a0808;
+    color: white;
+    border-color: #301f1f98;
 }
 
 /* Tab-Content + Animation */
@@ -386,7 +409,7 @@ body.dark th {
     color: #fff;
 }
 body.dark td {
-    border-color: #555;
+    border-color: #5f5d5d;
 }
 
 /* Excel / Word Farben leicht angepasst */
@@ -405,8 +428,9 @@ body.dark kbd {
     box-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
 
+
 /* Tabs im Dark-Mode */
-body.dark .tab-btn {
+body.dark .tab-btn .pdf-btn {
     background: #333;
     color: #eee;
     border-color: #555;
@@ -515,19 +539,6 @@ body.dark .search-count {
     color: #bbb;
 }
 
-#pdfExportBtn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    background: #f5f5f5;
-    cursor: pointer;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
-}
-
 #Kimlik,
 #lastUpdate {
   font-weight: bold;
@@ -552,7 +563,7 @@ body.dark .search-count {
     }
 
     /* Keine Buttons ausblenden */
-    button, .dark-toggle, .tab-btn {
+    button, .dark-toggle, .tab-btn  .pdf-btn {
         display: none !important; /* Falls du sie NICHT drucken willst */
     }
 
@@ -583,9 +594,16 @@ body.dark .search-count {
     /* KBD im Light-Mode */
     body:not(.dark) kbd {
         background: #eee !important;
-        color: #000 !important;
+        color: #585656 !important;
         border-color: #bbb !important;
     }
+
+    /* td th im Dark-Mode */
+    body.dark td {
+        color: #000000 !important;
+    }
+
+
 }
 
 /* Container für Shortcut + Copy-Button */
@@ -867,6 +885,11 @@ table {
         padding: 10px 16px;
     }
 
+    .pdf-btn {
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+
     table {
         font-size: 14px;
     }
@@ -893,6 +916,11 @@ table {
     .tab-btn {
         font-size: 16px;
         padding: 12px 20px;
+    }
+
+    .pdf-btn {
+        font-size: 16px;
+        padding: 10px 20px;
     }
 
     table {

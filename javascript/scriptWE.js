@@ -38,12 +38,6 @@ document.querySelectorAll("table.collapsible > caption").forEach(caption => {
 
 
 
-
-
-
-
-
-
 // --- TAB SWITCHER ---
     const tabButtons = document.querySelectorAll(".tab-btn");
     const tabContents = document.querySelectorAll(".tab-content");
