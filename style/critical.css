@@ -178,6 +178,33 @@ kbd {
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+/* ------------------------------------------------------------
+   LANGUAGE BUTTON SMOOTH EFFECTS
+   ------------------------------------------------------------ */
+
+.lang-btn {
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0.5px 1px rgba(0,0,0,0.06),
+        0 2px 4px rgba(0,0,0,0.10),
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+.lang-btn.active {
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+
+
+
 /* ICON FIX */
 .tab-btn img,
 .tab-btn svg {
@@ -254,26 +281,549 @@ kbd {
     border-color: #0078ff;
 }
 
+/* ------------------------------------------------------------
+   DARK MODE SMOOTH TRANSITIONS
+   ------------------------------------------------------------ */
+
+body.dark,
+body.dark table,
+body.dark th,
+body.dark td,
+body.dark .tab-btn,
+body.dark .pdf-btn,
+body.dark .dark-toggle,
+body.dark .lang-btn,
+body.dark .search-field {
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* ------------------------------------------------------------
+   DARK MODE BUTTON EFFECTS
+   ------------------------------------------------------------ */
+
+body.dark .tab-btn,
+body.dark .pdf-btn,
+body.dark .dark-toggle,
+body.dark .lang-btn {
+    background: var(--dark-soft);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark .tab-btn:hover,
+body.dark .pdf-btn:hover,
+body.dark .dark-toggle:hover,
+body.dark .lang-btn:hover {
+    background: var(--dark-hover);
+    transform: translateY(-2px);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE SEARCH FIELD
+   ------------------------------------------------------------ */
+
+body.dark .search-field {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark .search-field:focus {
+    box-shadow:
+        0 0 0 3px rgba(0,122,255,0.25),
+        0 0 12px rgba(0,122,255,0.35);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE TABLE HOVER
+   ------------------------------------------------------------ */
+
+body.dark table tbody tr:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* ------------------------------------------------------------
+   TABLE CAPTION SMOOTH SHADOW (Apple subtle)
+   ------------------------------------------------------------ */
 
 
-/* Mobile Grundlayout */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-    th, td {
-        padding: 8px;
-    }
+   table.collapsible > caption {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
 
-    /* ICON FIX MOBILE */
-    .tab-btn img,
-    .tab-btn svg {
-        width: 12px;
-        height: 12px;
-    }
+table.collapsible > caption:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 3px 6px rgba(0,0,0,0.12);
+    transform: translateY(-1px);
+}
 
-    .lang-btn img {
-        width: 14px;
-        height: 14px;
+/* ------------------------------------------------------------
+   TABLE ROW SOFT SCALE (optional Apple effect)
+   ------------------------------------------------------------ */
+
+.soft-row:hover {
+    transform: scale(1.01);
+}
+
+/* ------------------------------------------------------------
+   ICON HOVER GLOW (Apple style)
+   ------------------------------------------------------------ */
+
+.icon-glow:hover {
+    filter: drop-shadow(0 0 4px rgba(0,122,255,0.45));
+}
+
+/* ------------------------------------------------------------
+   PDF BUTTON SMOOTH EFFECTS
+   ------------------------------------------------------------ */
+
+.pdf-btn {
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.pdf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0.5px 1px rgba(0,0,0,0.06),
+        0 2px 4px rgba(0,0,0,0.10),
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE PDF BUTTON
+   ------------------------------------------------------------ */
+
+body.dark .pdf-btn {
+    background: var(--dark-soft);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark .pdf-btn:hover {
+    background: var(--dark-hover);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE CAPTION EFFECTS
+   ------------------------------------------------------------ */
+
+body.dark table.collapsible > caption {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+body.dark table.collapsible > caption:hover {
+    background: var(--dark-hover);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+    transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE ICON GLOW
+   ------------------------------------------------------------ */
+
+body.dark .icon-glow:hover {
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
+}
+
+/* ------------------------------------------------------------
+   TABLE SOFT SHADOW ON HOVER (Apple subtle)
+   ------------------------------------------------------------ */
+
+.table-hover:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 3px 6px rgba(0,0,0,0.12),
+        0 6px 14px rgba(0,0,0,0.14);
+    transform: translateY(-1px);
+}
+
+body.dark .table-hover:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 3px 6px rgba(0,0,0,0.55),
+        0 6px 14px rgba(0,0,0,0.65);
+}
+
+
+
+/* ------------------------------------------------------------
+   SMOOTH PRINT TRANSITIONS (non-critical)
+   ------------------------------------------------------------ */
+
+@media print {
+    table,
+    th,
+    td {
+        transition: none !important;
     }
 }
+/* ------------------------------------------------------------
+   SMOOTH TAB SWITCHING (Opacity Fade)
+   ------------------------------------------------------------ */
+
+.tab-content {
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+.tab-content.hidden {
+    opacity: 0;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH SCROLLING (Apple-like)
+   ------------------------------------------------------------ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ------------------------------------------------------------
+   BUTTON ACTIVE PRESS EFFECT
+   ------------------------------------------------------------ */
+
+.btn-press:active,
+.tab-btn:active,
+.pdf-btn:active,
+.lang-btn:active,
+.dark-toggle:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/* ------------------------------------------------------------
+   TABLE CAPTION ACTIVE PRESS
+   ------------------------------------------------------------ */
+
+table.collapsible > caption:active {
+    transform: scale(0.98);
+}
+
+/* ------------------------------------------------------------
+   SEARCH HIGHLIGHT FADE-IN
+   ------------------------------------------------------------ */
+
+mark.search-highlight {
+    animation: highlightFade 0.6s ease;
+}
+
+@keyframes highlightFade {
+    from { background: #005fcc; }
+    to   { background: #007aff; }
+}
+
+/* ------------------------------------------------------------
+   COPY BUTTON CLICK FEEDBACK
+   ------------------------------------------------------------ */
+
+.copy-btn:active {
+    transform: translateY(-50%) scale(0.92);
+    opacity: 1;
+}
+/* ------------------------------------------------------------
+   SMOOTH LANGUAGE SWITCHER TRANSITIONS
+   ------------------------------------------------------------ */
+
+.lang-switch {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lang-switch.fade-in {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: langFade 0.35s ease forwards;
+}
+
+@keyframes langFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TAB BUTTON ICON TRANSITIONS
+   ------------------------------------------------------------ */
+
+.tab-btn img,
+.tab-btn svg {
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.tab-btn:hover img,
+.tab-btn:hover svg {
+    transform: scale(1.08);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE ICON TRANSITIONS
+   ------------------------------------------------------------ */
+
+body.dark table caption::before {
+    transition: filter 0.25s ease;
+}
+
+body.dark table caption:hover::before {
+    filter: brightness(1.35) contrast(1.15);
+}
+
+/* ------------------------------------------------------------
+   TABLE BORDER SOFT TRANSITION
+   ------------------------------------------------------------ */
+
+table,
+th,
+td {
+    transition: border-color 0.25s ease;
+}
+
+/* ------------------------------------------------------------
+   SEARCH RESET BUTTON SMOOTH EFFECT
+   ------------------------------------------------------------ */
+
+.search-reset {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-reset:hover {
+    transform: translateY(-1px);
+}
+
+body.dark .search-reset:hover {
+    background: #555;
+}
+/* ------------------------------------------------------------
+   SMOOTH TABLE CONTAINER FADE-IN
+   ------------------------------------------------------------ */
+
+.table-container {
+    opacity: 0;
+    animation: tableFade 0.45s ease forwards;
+}
+
+@keyframes tableFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH CATEGORY TITLE APPEAR
+   ------------------------------------------------------------ */
+
+.category-title {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: categoryFade 0.4s ease forwards;
+}
+
+@keyframes categoryFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH SCROLL TO TOP (if used)
+   ------------------------------------------------------------ */
+
+.scroll-top {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top.hide {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ------------------------------------------------------------
+   OPTIONAL: BUTTON GLOW ON ACTIVE TAB
+   ------------------------------------------------------------ */
+
+.tab-btn.active.glow {
+    box-shadow:
+        0 0 0 3px rgba(0,122,255,0.15),
+        0 0 12px rgba(0,122,255,0.25);
+}
+/* ------------------------------------------------------------
+   OPTIONAL: SMOOTH APPEAR FOR NOTES
+   ------------------------------------------------------------ */
+
+p.note {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: noteFade 0.35s ease forwards;
+}
+
+@keyframes noteFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH BORDER RADIUS TRANSITIONS (Apple subtle)
+   ------------------------------------------------------------ */
+
+table,
+.tab-btn,
+.pdf-btn,
+.lang-btn,
+.dark-toggle,
+.search-field {
+    transition: border-radius 0.25s ease;
+}
+
+.rounded:hover {
+    border-radius: 12px;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH ICON ROTATION (Collapsible Arrow)
+   ------------------------------------------------------------ */
+
+table.collapsible > caption::after {
+    transition: transform 0.25s ease;
+}
+
+table.collapsible.collapsed > caption::after {
+    transform: rotate(-90deg);
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TABLE WIDTH ADJUSTMENTS (non-critical)
+   ------------------------------------------------------------ */
+
+table {
+    transition: width 0.25s ease;
+}
+/* ------------------------------------------------------------
+   SMOOTH FLAG ICON TRANSITIONS
+   ------------------------------------------------------------ */
+
+.lang-btn img {
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.lang-btn:hover img {
+    transform: scale(1.12);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE FLAG ICONS
+   ------------------------------------------------------------ */
+
+body.dark .lang-btn img {
+    filter: brightness(0.85);
+}
+
+body.dark .lang-btn:hover img {
+    filter: brightness(1.05);
+}
+
+/* ------------------------------------------------------------
+   SMOOTH NAVBAR APPEAR (optional)
+   ------------------------------------------------------------ */
+
+.navbar {
+    opacity: 0;
+    animation: navbarFade 0.45s ease forwards;
+}
+
+@keyframes navbarFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TAB BUTTON GROUP APPEAR
+   ------------------------------------------------------------ */
+
+.tab-buttons {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: tabButtonsFade 0.45s ease forwards;
+}
+
+@keyframes tabButtonsFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ------------------------------------------------------------
+   FINAL: SMOOTH GLOBAL FADE-IN FOR ENTIRE APP
+   ------------------------------------------------------------ */
+
+body {
+    opacity: 0;
+    animation: bodyFade 0.55s ease forwards;
+}
+
+@keyframes bodyFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   FINAL: SMOOTH TRANSITION FOR ALL CUSTOM PROPERTIES
+   ------------------------------------------------------------ */
+
+:root,
+body.dark {
+    transition:
+        --light-card 0.35s ease,
+        --light-soft 0.35s ease,
+        --light-hover 0.35s ease,
+        --light-border 0.35s ease,
+        --light-text 0.35s ease,
+        --dark-card 0.35s ease,
+        --dark-soft 0.35s ease,
+        --dark-hover 0.35s ease,
+        --dark-border 0.35s ease,
+        --dark-text 0.35s ease;
+}
+
+/* ------------------------------------------------------------
+   END OF LAZY.CSS
+   ------------------------------------------------------------ */
