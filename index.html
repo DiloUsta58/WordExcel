@@ -2,85 +2,96 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Shortcut-Cheatsheet – Excel & Word</title>
+    <title data-i18n="title">Shortcut-Cheatsheet – Excel & Word</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="style/styleWE.css" rel="stylesheet"/>
 
-<!-- ===================ICON================================== -->
+    <!-- =================== ICON =============================== -->
 
     <link rel="icon" type="image/png" href="icons/icon.png">
-<!-- Dein Icon als App‑Icon für Mobile (iOS & Android) -->
-     <link rel="apple-touch-icon" href="icons/icon.png">
-<!-- WebApp Manifest (für Homescreen + Splash‑Screen) -->     
+    <link rel="apple-touch-icon" href="icons/icon.png">
     <link rel="manifest" href="manifest.json">
 
-<link rel="apple-touch-startup-image" href="icons/splash-640x1136.png" media="(device-width: 320px)">
-<link rel="apple-touch-startup-image" href="icons/splash-750x1334.png" media="(device-width: 375px)">
-<link rel="apple-touch-startup-image" href="icons/splash-1125x2436.png" media="(device-width: 375px) and (-webkit-device-pixel-ratio: 3)">
-<link rel="apple-touch-startup-image" href="icons/splash-1242x2688.png" media="(device-width: 414px)">
-<link rel="apple-touch-startup-image" href="icons/splash-1536x2048.png" media="(device-width: 768px)">
-<link rel="apple-touch-startup-image" href="icons/splash-1668x2224.png" media="(device-width: 834px)">
-<link rel="apple-touch-startup-image" href="icons/splash-2048x2732.png" media="(device-width: 1024px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-640x1136.png" media="(device-width: 320px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-750x1334.png" media="(device-width: 375px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1125x2436.png" media="(device-width: 375px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1242x2688.png" media="(device-width: 414px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1536x2048.png" media="(device-width: 768px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-1668x2224.png" media="(device-width: 834px)">
+    <link rel="apple-touch-startup-image" href="icons/splash-2048x2732.png" media="(device-width: 1024px)">
 
-<!-- ===================ICON=================================== -->
+    <!-- =================== ICON =============================== -->
 
 </head>
 <body>
 
 <div id="printHeader">
     <img src="icons/icon.png" alt="Logo">
-    <div class="print-title">Word / Excel Shortcut Dokumentation</div>
-    <div class="print-date">Stand: <span id="printDate"></span></div>
+    <div class="print-title" data-i18n="print_title">Word / Excel Shortcut Dokumentation</div>
+    <div class="print-date" data-i18n="print_date">Stand: <span id="printDate"></span></div>
 </div>
 
+<h1 data-i18n="main_title">Excel & Word - Shortcut-Cheatsheet</h1>
 
-<h1>Excel &amp; Word - Shortcut-Cheatsheet</h1>
 <div class="navbar">
+    <!-- Sprachumschalter -->
+<div class="lang-switch">
+    <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">
+        <img src="icons/_flag_tr.png" alt="TR">
+    </button>
 
-        <!-- ========================================================= -->
-        <!-- ======================= TAB-SWITCHER ===================== -->
-        <!-- ========================================================= -->
+    <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">
+        <img src="icons/_flag_de.png" alt="DE">
+    </button>
+</div>
     <!-- Dark Mode Button -->
     <button class="dark-toggle" id="darkToggle">
         <span class="dark-toggle-icon" id="darkToggleIcon">🌙</span>
-        <span id="darkToggleLabel">Dark‑Mode</span></button>
+        <span id="darkToggleLabel" data-i18n="dark_mode">Dark‑Mode</span>
+    </button>
 
-        
+    <!-- Tabs -->
     <button class="tab-btn" data-tab="Excel_Basis">
         <img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="">
-        Excel Basis
+        <span data-i18n="tab_excel_basic">Excel Basis</span>
     </button>
 
     <button class="tab-btn" data-tab="Excel_Power_User">
         <img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="">
-        Excel Power‑User
+        <span data-i18n="tab_excel_power">Excel Power‑User</span>
     </button>
 
     <button class="tab-btn" data-tab="Word_Basis">
         <img src="https://img.icons8.com/color/48/microsoft-word-2019.png" alt="">
-        Word – Basis
+        <span data-i18n="tab_word_basic">Word – Basis</span>
     </button>
 
-        <button class="tab-btn" data-tab="Word_Expert">
+    <button class="tab-btn" data-tab="Word_Expert">
         <img src="https://img.icons8.com/fluency/48/microsoft-word-2019.png" alt="">
-        Word Experten
+        <span data-i18n="tab_word_expert">Word Experten</span>
     </button>
 
     <button class="tab-btn" data-tab="Word_Science">
         <img src="https://img.icons8.com/fluency/48/graduation-cap.png" alt="">
-        Word – Wissenschaftlich
+        <span data-i18n="tab_word_science">Word – Wissenschaftlich</span>
     </button>
 
-        <div class="search-wrapper">
-            <input type="text" id="searchInput" class="search-field" placeholder="Suchen...">
-            <button id="searchReset" class="search-reset">✕</button>
-            <span id="searchCount" class="search-count"></span>
-        </div>
-        <button class="pdf-btn" id="pdfExportBtn" >PDF Export
-            <img src="icons/adobe.png" alt="">
-        </button>
+    <!-- Suche -->
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-field" placeholder="Suchen..." data-i18n-placeholder="search_placeholder">
+        <button id="searchReset" class="search-reset">✕</button>
+        <span id="searchCount" class="search-count"></span>
+    </div>
+
+    <!-- PDF Export -->
+    <button class="pdf-btn" id="pdfExportBtn">
+        <span data-i18n="pdf_export">PDF Export</span>
+        <img src="icons/adobe.png" alt="">
+    </button>
+
 </div>
+
 
 <!-- ========================================================= -->
 <!-- ====================== EXCEL BASIS ====================== -->
@@ -90,616 +101,1200 @@
 <h2 class="category-title excel-theme">Excel – Basis-Shortcut</h2>
 
     <!-- 1. Allgemeine Tastenkombinationen -->
-    <table class="excel collapsible">
-        <caption>1. Allgemeine Tastenkombinationen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Neue Arbeitsmappe<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Datei öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Speichern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Speichern unter<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F12</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Drucken<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Arbeitsmappe schließen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Excel beenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_1_caption">
+        1. Allgemeine Tastenkombinationen
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_1_new">Neue Arbeitsmappe</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_open">Datei öffnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_save">Speichern</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_save_as">Speichern unter</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F12</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_print">Drucken</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_close">Arbeitsmappe schließen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_1_exit">Excel beenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 2. Bearbeiten & Markieren -->
-    <table class="excel collapsible">
-        <caption>2. Bearbeiten &amp; Markieren</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Kopieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ausschneiden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>X</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rückgängig<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Z</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Wiederholen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Y</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zellinhalt löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Entf</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Alles markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Nach unten ausfüllen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Nach rechts ausfüllen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_2_caption">
+        2. Bearbeiten & Markieren
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="copy">Kopieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="cut">Ausschneiden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>X</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="paste">Einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="undo">Rückgängig</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Z</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="redo">Wiederholen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Y</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="delete_cell">Zellinhalt löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Entf</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="select_all">Alles markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="fill_down">Nach unten ausfüllen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="fill_right">Nach rechts ausfüllen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 3. Navigation in Tabellen -->
-    <table class="excel collapsible">
-        <caption>3. Navigation in Tabellen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Eine Zelle bewegen<td class="shortcut-cell"> <span class="shortcut-text">Pfeiltasten</td></tr>
-            <tr><td>Zum Rand eines Datenbereichs springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeiltaste</td></tr>
-            <tr><td>Zu Zelle A1<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zur letzten verwendeten Zelle<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Eine Bildschirmseite hoch / runter<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Eine Bildschirmseite links / rechts<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_3_caption">3. Navigation in Tabellen</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_3_move_cell">Eine Zelle bewegen</td>
+            <td class="shortcut-cell"><span class="shortcut-text">Pfeiltasten</span></td></tr>
+
+        <tr><td data-i18n="excel_basic_3_jump_edge">Zum Rand eines Datenbereichs springen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeiltaste</span></td></tr>
+
+        <tr><td data-i18n="excel_basic_3_to_a1">Zu Zelle A1</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_3_last_cell">Zur letzten verwendeten Zelle</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_3_page_up_down">Eine Bildschirmseite hoch / runter</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_3_page_left_right">Eine Bildschirmseite links / rechts</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 4. Zellen, Zeilen und Spalten -->
-    <table class="excel collapsible">
-        <caption>4. Zellen, Zeilen und Spalten</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Ganze Spalte markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ganze Zeile markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zellen/Zeilen/Spalten einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zellen/Zeilen/Spalten löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>-</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeilen ausblenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>9</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Spalten ausblenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>0</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_4_caption">4. Zellen, Zeilen und Spalten</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_4_select_column">Ganze Spalte markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_4_select_row">Ganze Zeile markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_4_insert_cells">Zellen/Zeilen/Spalten einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_4_delete_cells">Zellen/Zeilen/Spalten löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>-</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_4_hide_rows">Zeilen ausblenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>9</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_4_hide_columns">Spalten ausblenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>0</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 5. Formatierung -->
-    <table class="excel collapsible">
-        <caption>5. Formatierung</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Zellen formatieren (Dialog)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fett<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>B</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Kursiv<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Unterstreichen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Spaltenbreite automatisch anpassen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeilenhöhe automatisch anpassen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_5_caption">5. Formatierung</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_5_format_cells">Zellen formatieren (Dialog)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="bold">Fett</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>B</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="italic">Kursiv</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="underline">Unterstreichen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_5_autofit_columns">Spaltenbreite automatisch anpassen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_5_autofit_rows">Zeilenhöhe automatisch anpassen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 6. Formeln & Funktionen -->
-    <table class="excel collapsible">
-        <caption>6. Formeln &amp; Funktionen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Formel beginnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>AutoSumme<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zelle bearbeiten<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F2</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absolute/relative Zellbezüge umschalten<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formeln anzeigen / ausblenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Funktion einfügen (Dialog)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_6_caption">6. Formeln & Funktionen</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_6_start_formula">Formel beginnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_6_autosum">AutoSumme</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_6_edit_cell">Zelle bearbeiten</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F2</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_6_toggle_refs">Absolute/relative Zellbezüge umschalten</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_6_show_formulas">Formeln anzeigen / ausblenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_6_insert_function">Funktion einfügen (Dialog)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 7. Tabellen & Filter -->
-    <table class="excel collapsible">
-        <caption>7. Tabellen &amp; Filter</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Tabelle erstellen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Filter ein-/ausschalten<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Filter-Dropdown öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_7_caption">7. Tabellen & Filter</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_7_create_table">Tabelle erstellen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_7_toggle_filter">Filter ein-/ausschalten</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_7_open_filter">Filter-Dropdown öffnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 8. Arbeitsblätter -->
-    <table class="excel collapsible">
-        <caption>8. Arbeitsblätter</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Neues Arbeitsblatt<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F11</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zwischen Arbeitsblättern wechseln<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Arbeitsblatt umbenennen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_basic_8_caption">8. Arbeitsblätter</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_basic_8_new_sheet">Neues Arbeitsblatt</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F11</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_8_switch_sheets">Zwischen Arbeitsblättern wechseln</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Bild ↑</kbd> / <kbd>Bild ↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_basic_8_rename_sheet">Arbeitsblatt umbenennen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
 
     <!-- 9. Fenster & Ansicht -->
     <table class="excel collapsible">
-        <caption>9. Fenster &amp; Ansicht</caption>
+        <caption data-i18n="excel_basic_9_caption">9. Fenster & Ansicht</caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Fenster fixieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fixierung aufheben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zoom ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Mausrad</td></tr>
+            <tr><td data-i18n="excel_basic_9_freeze_panes">Fenster fixieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="excel_basic_9_unfreeze_panes">Fixierung aufheben</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="excel_basic_9_zoom">Zoom ändern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Mausrad</span></td></tr>
         </tbody>
     </table>
 </div>
 
 
-<div id="Excel_Power_User" class="tab-content">
+
     <!-- ========================================================= -->
     <!-- ================== EXCEL – POWER USER =================== -->
     <!-- ========================================================= -->
-   <h2 class="category-title excel-theme">Excel – Power‑User‑Shortcuts</h2>
+<div id="Excel_Power_User" class="tab-content">
 
+<h2 class="category-title excel-theme" data-i18n="excel_power_title">
+    Excel – Power‑User‑Shortcuts
+</h2>
     <!-- 1. Hochleistungs-Navigation & Selektion -->
-    <table class="excel collapsible">
-        <caption>1. Hochleistungs-Navigation &amp; Selektion</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Zum Rand zusammenhängender Daten springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeiltaste</td></tr>
-            <tr><td>Bis zum Rand markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeiltaste</td></tr>
-            <tr><td>Letzte verwendete Zelle im Blatt<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zur ersten Zelle (A1)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Direktes Markieren leerer Zellen, Formeln, Konstanten etc.<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd> → Sonder</td></tr>
-            <tr><td>„Gehe zu“-Dialog (präzise Navigation)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_1_caption">
+        1. Hochleistungs-Navigation & Selektion
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_power_1_jump_edge">Zum Rand zusammenhängender Daten springen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeiltaste</span></td></tr>
+
+        <tr><td data-i18n="excel_power_1_select_edge">Bis zum Rand markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeiltaste</span></td></tr>
+
+        <tr><td data-i18n="excel_power_1_last_cell">Letzte verwendete Zelle im Blatt</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_1_to_a1">Zur ersten Zelle (A1)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_1_goto_special">Direktes Markieren leerer Zellen, Formeln, Konstanten etc.</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd> → Sonder</span></td></tr>
+
+        <tr><td data-i18n="excel_power_1_goto_dialog">„Gehe zu“-Dialog (präzise Navigation)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 2. Effiziente Datenbearbeitung -->
     <table class="excel collapsible">
-        <caption>2. Effiziente Datenbearbeitung</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Inhalte/Formeln blitzschnell ausfüllen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>D</kbd> / <kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gleichen Wert in alle markierten Zellen schreiben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Eingabe</td></tr>
-            <tr><td>Zeilenumbruch innerhalb einer Zelle<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + Eingabe</td></tr>
-            <tr><td>Inhalte ohne Format einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Inhalte einfügen (Dialog: Werte, Formeln etc.)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    <caption data-i18n="excel_power_2_caption">
+        2. Effiziente Datenbearbeitung
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="excel_power_2_fill_fast">Inhalte/Formeln blitzschnell ausfüllen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>D</kbd> / <kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_2_fill_same">Gleichen Wert in alle markierten Zellen schreiben</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Eingabe</span></td></tr>
+           <tr><td data-i18n="excel_power_2_line_break">Zeilenumbruch innerhalb einer Zelle</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + Eingabe</span></td></tr>
+
+            <tr><td data-i18n="excel_power_2_paste_no_format">Inhalte ohne Format einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="excel_power_2_paste_dialog">Inhalte einfügen (Dialog: Werte, Formeln etc.)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
     <!-- 3. Formeln, Bezüge & Analyse -->
-    <table class="excel collapsible">
-        <caption>3. Formeln, Bezüge &amp; Analyse</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Direkte Bearbeitung von Formeln<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F2</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zellbezüge zyklisch fixieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Alle Formeln anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formelüberwachung: Abhängigkeiten verfolgen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formeln auswerten (Debugging)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Nur aktuelles Blatt neu berechnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F9</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_3_caption">3. Formeln, Bezüge & Analyse</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_3_edit_formula">Direkte Bearbeitung von Formeln</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F2</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_3_toggle_refs">Zellbezüge zyklisch fixieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_3_show_formulas">Alle Formeln anzeigen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_3_trace_dependents">Formelüberwachung: Abhängigkeiten verfolgen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_3_evaluate_formula">Formeln auswerten (Debugging)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_3_recalc_sheet">Nur aktuelles Blatt neu berechnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F9</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- 4. Tabellen, Filter & große Datenmengen -->
-    <table class="excel collapsible">
-        <caption>4. Tabellen, Filter &amp; große Datenmengen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Bereich in strukturierte Tabelle umwandeln<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Filtermenü der aktiven Spalte öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Filter löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>A</kbd>, <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>AutoFilter an/aus<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>In Tabellen springen (strukturierte Referenzen)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + Pfeiltaste</td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_4_caption">4. Tabellen, Filter & große Datenmengen</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_4_structured_table">Bereich in strukturierte Tabelle umwandeln</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_4_open_filter">Filtermenü der aktiven Spalte öffnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_4_clear_filter">Filter löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>A</kbd>, <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_4_toggle_filter">AutoFilter an/aus</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_4_jump_tables">In Tabellen springen (strukturierte Referenzen)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + Pfeiltaste</span></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- 5. Pivot-Tabellen (Expertenmodus) -->
-    <table class="excel collapsible">
-        <caption>5. Pivot-Tabellen (Expertenmodus)</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>PivotTable erstellen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>N</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>PivotTable aktualisieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>J</kbd>, <kbd>T</kbd>, <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Feldoptionen öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd> (auf Feld)</td></tr>
-            <tr><td>Wertefeldeinstellungen<td class="shortcut-cell"> <span class="shortcut-text">Rechtsklick + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gesamte Pivot-Spalte markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_5_caption">5. Pivot-Tabellen (Expertenmodus)</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_5_create_pivot">PivotTable erstellen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>N</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_5_refresh_pivot">PivotTable aktualisieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>J</kbd>, <kbd>T</kbd>, <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_5_field_options">Feldoptionen öffnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd> (auf Feld)</span></td></tr>
+
+        <tr><td data-i18n="excel_power_5_value_settings">Wertefeldeinstellungen</td>
+            <td class="shortcut-cell"><span class="shortcut-text">Rechtsklick + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_5_select_column">Gesamte Pivot-Spalte markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- 6. Struktur, Layout & Performance -->
-    <table class="excel collapsible">
-        <caption>6. Struktur, Layout &amp; Performance</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Zeilen / Spalten ausblenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>9</kbd> / <kbd>Strg</kbd> + <kbd>0</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Spaltenbreite / Zeilenhöhe automatisch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>I</kbd> / <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fenster fixieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>F</kbd>, <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zoomdialog<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gruppieren / Gliederung entfernen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd> / <kbd>←</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_6_caption">6. Struktur, Layout & Performance</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_6_hide">Zeilen / Spalten ausblenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>9</kbd> / <kbd>Strg</kbd> + <kbd>0</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_6_autofit">Spaltenbreite / Zeilenhöhe automatisch</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd>, <kbd>O</kbd>, <kbd>I</kbd> / <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_6_freeze">Fenster fixieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>F</kbd>, <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_6_zoom_dialog">Zoomdialog</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_6_grouping">Gruppieren / Gliederung entfernen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd> / <kbd>←</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- 7. Arbeiten ohne Maus (Ribbon-Kontrolle) -->
-    <table class="excel collapsible">
-        <caption>7. Arbeiten ohne Maus (Ribbon-Kontrolle)</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>KeyTips aktivieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Direktzugriff auf Start / Einfügen / Daten / Formeln / Ansicht<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd> / <kbd>N</kbd> / <kbd>A</kbd> / <kbd>M</kbd> / <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Werte einfügen (klassischer Experten-Shortcut)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>E</kbd>, <kbd>S</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_7_caption">7. Arbeiten ohne Maus (Ribbon-Kontrolle)</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_7_keytips">KeyTips aktivieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_7_ribbon_access">Direktzugriff auf Start / Einfügen / Daten / Formeln / Ansicht</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>H</kbd> / <kbd>N</kbd> / <kbd>A</kbd> / <kbd>M</kbd> / <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_7_paste_values">Werte einfügen (klassischer Experten-Shortcut)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>E</kbd>, <kbd>S</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- 8. Produktivitäts-Shortcuts -->
-    <table class="excel collapsible">
-        <caption>8. Produktivitäts-Shortcuts (Power-User-Favoriten)</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Bearbeitungsleiste ein/aus<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Suchen / Ersetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd> / <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Aktuelles Datum<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>;</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Aktuelle Uhrzeit<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>:</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hyperlink einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_8_caption">8. Produktivitäts-Shortcuts (Power-User-Favoriten)</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_8_formula_bar">Bearbeitungsleiste ein/aus</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_8_search_replace">Suchen / Ersetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd> / <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_8_date">Aktuelles Datum</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>;</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_8_time">Aktuelle Uhrzeit</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>:</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_8_hyperlink">Hyperlink einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 
     <!-- Empfehlung für Experten -->
-    <table class="excel collapsible">
-        <caption>Empfehlung für Experten – 10 Kern-Shortcuts</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Schnellste Navigation &amp; Selektion<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeil / <kbd>Shift</kbd> + <kbd>Strg</kbd> + Pfeil</td></tr>
-            <tr><td>Formelbearbeitung &amp; Bezugskontrolle<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F2</kbd> / <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>AutoSumme<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Tabelle erstellen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Filter öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Werte einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>E</kbd>, <kbd>S</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formeln anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formeln auswerten<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>AutoFilter<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ribbon KeyTips<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="excel collapsible">
+    <caption data-i18n="excel_power_9_caption">Empfehlung für Experten – 10 Kern-Shortcuts</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr><td data-i18n="excel_power_9_navigation">Schnellste Navigation & Selektion</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeil / <kbd>Shift</kbd> + <kbd>Strg</kbd> + Pfeil</span></td></tr>
+
+        <tr><td data-i18n="excel_power_9_formula_edit">Formelbearbeitung & Bezugskontrolle</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F2</kbd> / <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_autosum">AutoSumme</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_create_table">Tabelle erstellen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_open_filter">Filter öffnen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>↓</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_paste_values">Werte einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>E</kbd>, <kbd>S</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_show_formulas">Formeln anzeigen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>`</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_evaluate_formula">Formeln auswerten</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>M</kbd>, <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_autofilter">AutoFilter</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="excel_power_9_keytips">Ribbon KeyTips</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+    </tbody>
+</table>
+
 </div>
 
-<div id="Word_Basis" class="tab-content">
+
+
 <!-- ========================================================= -->
 <!-- ======================= WORD BASIS ====================== -->
 <!-- ========================================================= -->
-    <h2 class="category-title word-theme">Word – Basis‑Shortcut</h2>
+
+<div id="Word_Basis" class="tab-content">
+
+    <h2 class="category-title word-theme" data-i18n="word_basic_title">
+        Word – Basis‑Shortcut
+    </h2>
+
     <!-- 1. Allgemeine Datei- und Programmfunktionen -->
     <table class="word collapsible">
-        <caption>1. Allgemeine Datei- und Programmfunktionen</caption>
+        <caption data-i18n="word_basic_1_caption">
+            1. Allgemeine Datei- und Programmfunktionen
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Neues Dokument<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Dokument öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Speichern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Speichern unter<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F12</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Drucken<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Dokument schließen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Word beenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_basic_1_new">Neues Dokument</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_open">Dokument öffnen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_save">Speichern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_save_as">Speichern unter</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>F12</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_print">Drucken</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_close">Dokument schließen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_basic_1_exit">Word beenden</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
     <!-- 2. Bearbeiten & Zwischenablage -->
     <table class="word collapsible">
-        <caption>2. Bearbeiten &amp; Zwischenablage</caption>
+        <caption data-i18n="word_basic_2_caption">2. Bearbeiten & Zwischenablage</caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Kopieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ausschneiden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>X</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rückgängig<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Z</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Wiederholen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Y</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Auswahl löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Entf</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Alles markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="copy">Kopieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>C</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="cut">Ausschneiden</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>X</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="paste">Einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="undo">Rückgängig</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Z</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="redo">Wiederholen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Y</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="delete_selection">Auswahl löschen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Entf</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="select_all">Alles markieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>A</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
     <!-- 3. Navigation im Dokument -->
     <table class="word collapsible">
-        <caption>3. Navigation im Dokument</caption>
+        <caption data-i18n="word_basic_3_caption">3. Navigation im Dokument</caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Cursor bewegen<td class="shortcut-cell"> <span class="shortcut-text">Pfeiltasten</td></tr>
-            <tr><td>Wortweise springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeil links/rechts</td></tr>
-            <tr><td>Absatzweise springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeil hoch/runter</td></tr>
-            <tr><td>Zeilenanfang / -ende<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Dokumentanfang<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Dokumentende<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>„Gehe zu“-Dialog<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd> / <kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="cursor_move">Cursor bewegen</td>
+                <td class="shortcut-cell"><span class="shortcut-text">Pfeiltasten</span></td></tr>
+
+            <tr><td data-i18n="jump_wordwise">Wortweise springen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeil links/rechts</span></td></tr>
+
+            <tr><td data-i18n="jump_paragraphwise">Absatzweise springen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeil hoch/runter</span></td></tr>
+
+            <tr><td data-i18n="line_start_end">Zeilenanfang / -ende</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="doc_start">Dokumentanfang</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="doc_end">Dokumentende</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="goto_dialog">„Gehe zu“-Dialog</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd> / <kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
     <!-- 4. Text markieren -->
-    <table class="word collapsible">
-        <caption>4. Text markieren (Selektion)</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Zeichenweise markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + Pfeiltasten</td></tr>
-            <tr><td>Wortweise markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeil</td></tr>
-            <tr><td>Bis Zeilenanfang/-ende markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Bis Dokumentanfang/-ende markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_4_caption">4. Text markieren (Selektion)</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_basic_4_char_select">Zeichenweise markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + Pfeiltasten</span></td></tr>
+
+        <tr><td data-i18n="word_basic_4_word_select">Wortweise markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeil</span></td></tr>
+
+        <tr><td data-i18n="word_basic_4_line_select">Bis Zeilenanfang/-ende markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_basic_4_doc_select">Bis Dokumentanfang/-ende markieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 5. Zeichenformatierung -->
-    <table class="word collapsible">
-        <caption>5. Zeichenformatierung</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Fett<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>B</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Kursiv<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Unterstreichen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Doppelt unterstreichen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Wörter unterstreichen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeichenformatierung löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_5_caption">5. Zeichenformatierung</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="bold">Fett</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>B</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="italic">Kursiv</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>I</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="underline">Unterstreichen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>U</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="double_underline">Doppelt unterstreichen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="underline_words">Wörter unterstreichen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="clear_char_format">Zeichenformatierung löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 6. Absatz- und Layoutformatierung -->
-    <table class="word collapsible">
-        <caption>6. Absatz- und Layoutformatierung</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Linksbündig<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zentriert<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>E</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rechtsbündig<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Blocksatz<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>J</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeilenabstand 1 / 2 / 1,5<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>5</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Einzug erhöhen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Einzug verringern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hängender Einzug<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_6_caption">6. Absatz- und Layoutformatierung</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="align_left">Linksbündig</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="align_center">Zentriert</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>E</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="align_right">Rechtsbündig</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="justify">Blocksatz</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>J</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="line_spacing">Zeilenabstand 1 / 2 / 1,5</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>5</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="indent_increase">Einzug erhöhen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="indent_decrease">Einzug verringern</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="hanging_indent">Hängender Einzug</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 7. Formatvorlagen & Struktur -->
-    <table class="word collapsible">
-        <caption>7. Formatvorlagen &amp; Struktur</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Standardformat (Textkörper)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Überschrift 1 / 2 / 3<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatz verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch/runter</td></tr>
-            <tr><td>Gliederungsebene ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links/Rechts</td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_7_caption">7. Formatvorlagen & Struktur</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_basic_7_standard">Standardformat (Textkörper)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_basic_7_headings">Überschrift 1 / 2 / 3</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_basic_7_move_paragraph">Absatz verschieben</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch/runter</span></td></tr>
+
+        <tr><td data-i18n="word_basic_7_change_level">Gliederungsebene ändern</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links/Rechts</span></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 8. Suchen, Ersetzen & Überarbeiten -->
-    <table class="word collapsible">
-        <caption>8. Suchen, Ersetzen &amp; Überarbeiten</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Suchen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ersetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hyperlink einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rechtschreib- und Grammatikprüfung<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Thesaurus<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Kommentar einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_8_caption">8. Suchen, Ersetzen & Überarbeiten</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="search">Suchen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="replace">Ersetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="insert_hyperlink">Hyperlink einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="spellcheck">Rechtschreib- und Grammatikprüfung</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="thesaurus">Thesaurus</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="insert_comment">Kommentar einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+>
 
     <!-- 9. Seiten & Sonderfunktionen -->
-    <table class="word collapsible">
-        <caption>9. Seiten &amp; Sonderfunktionen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Seitenumbruch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeilenumbruch (weicher Umbruch)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Spaltenumbruch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Datum einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Uhrzeit einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_9_caption">9. Seiten & Sonderfunktionen</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="page_break">Seitenumbruch</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="soft_break">Zeilenumbruch (weicher Umbruch)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="column_break">Spaltenumbruch</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="insert_date">Datum einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="insert_time">Uhrzeit einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 10. Ansicht & Fenster -->
-    <table class="word collapsible">
-        <caption>10. Ansicht &amp; Fenster</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Drucklayout<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Lesemodus<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gliederungsansicht<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zoom ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Mausrad</td></tr>
-        </tbody>
-    </table>
+<table class="word collapsible">
+    <caption data-i18n="word_basic_10_caption">10. Ansicht & Fenster</caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="print_layout">Drucklayout</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>P</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="reading_mode">Lesemodus</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="outline_view">Gliederungsansicht</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>W</kbd>, <kbd>O</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="zoom">Zoom ändern</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Mausrad</span></td></tr>
+    </tbody>
+</table>
+
 </div>
 
-<div id="Word_Expert" class="tab-content">
+
     <!-- ========================================================= -->
     <!-- ===================== WORD EXPERTEN ===================== -->
     <!-- ========================================================= -->
+<div id="Word_Expert" class="tab-content">
 
-    <h2 class="category-title word-theme">Word – Experten‑Shortcuts</h2>
+    <h2 class="category-title word-theme" data-i18n="word_expert_title">
+        Word – Experten‑Shortcuts
+    </h2>
 
     <!-- 1. Hochleistungs-Navigation & Selektion -->
     <table class="expert collapsible">
-        <caption>1. Hochleistungs-Navigation &amp; Selektion</caption>
+        <caption data-i18n="word_expert_1_caption">
+            1. Hochleistungs-Navigation & Selektion
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Wortweise springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeil links / rechts</td></tr>
-            <tr><td>Absatzweise springen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Wortweise markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeil</td></tr>
-            <tr><td>Zeilenanfang / -ende markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Bis Dokumentanfang / -ende markieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gehe-zu-Navigation<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd> / <kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_1_jump_wordwise">Wortweise springen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeil links / rechts</span></td></tr>
+
+            <tr><td data-i18n="word_expert_1_jump_paragraphwise">Absatzweise springen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Pfeil hoch / runter</span></td></tr>
+
+            <tr><td data-i18n="word_expert_1_select_wordwise">Wortweise markieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + Pfeil</span></td></tr>
+
+            <tr><td data-i18n="word_expert_1_select_line">Zeilenanfang / -ende markieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_1_select_doc">Bis Dokumentanfang / -ende markieren</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_1_goto">Gehe-zu-Navigation</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd> / <kbd>Strg</kbd> + <kbd>G</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 2. Struktur & Gliederung (Experten-Workflow) -->
+    <!-- 2. Struktur & Gliederung -->
     <table class="expert collapsible">
-        <caption>2. Struktur &amp; Gliederung (Experten-Workflow)</caption>
+        <caption data-i18n="word_expert_2_caption">
+            2. Struktur & Gliederung (Experten-Workflow)
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Überschrift 1 / 2 / 3<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absätze verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Gliederungsebene ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</td></tr>
-            <tr><td>Textkörper in Gliederungsansicht<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gliederung ein-/ausklappen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Plus / Minus</td></tr>
+            <tr><td data-i18n="word_expert_2_headings">Überschrift 1 / 2 / 3</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_2_move_paragraph">Absätze verschieben</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+            <tr><td data-i18n="word_expert_2_change_level">Gliederungsebene ändern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</span></td></tr>
+
+            <tr><td data-i18n="word_expert_2_body_text">Textkörper in Gliederungsansicht</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_2_expand_collapse">Gliederung ein-/ausklappen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Plus / Minus</span></td></tr>
         </tbody>
     </table>
 
-    <!-- 3. Formatkontrolle & Bereinigung -->
+    <!-- 3. Formatkontrolle -->
     <table class="expert collapsible">
-        <caption>3. Formatkontrolle &amp; Bereinigung</caption>
+        <caption data-i18n="word_expert_3_caption">
+            3. Formatkontrolle & Bereinigung
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Zeichenformatierung vollständig entfernen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatzformatierung zurücksetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Standardformat (Textkörper)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Format kopieren / einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> / <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatierungsüberprüfung anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_3_clear_char">Zeichenformatierung vollständig entfernen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_3_clear_para">Absatzformatierung zurücksetzen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_3_standard">Standardformat (Textkörper)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_3_copy_format">Format kopieren / einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> / <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_3_reveal_format">Formatierungsüberprüfung anzeigen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F1</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 4. Präzise Absatz- & Layoutsteuerung -->
+    <!-- 4. Absatz- & Layoutsteuerung -->
     <table class="expert collapsible">
-        <caption>4. Präzise Absatz- &amp; Layoutsteuerung</caption>
+        <caption data-i18n="word_expert_4_caption">
+            4. Präzise Absatz- & Layoutsteuerung
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Einzug erhöhen / verringern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>M</kbd> / <kbd>Shift</kbd> + <kbd>Strg</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hängender Einzug<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeilenabstand 1 / 2 / 1,5<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>5</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Blocksatz<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>J</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Links / Zentriert / Rechts ausrichten<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>L</kbd> / <kbd>E</kbd> / <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_4_indent">Einzug erhöhen / verringern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>M</kbd> / <kbd>Shift</kbd> + <kbd>Strg</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_4_hanging">Hängender Einzug</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_4_line_spacing">Zeilenabstand 1 / 2 / 1,5</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>5</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_4_justify">Blocksatz</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>J</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_4_align">Links / Zentriert / Rechts ausrichten</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>L</kbd> / <kbd>E</kbd> / <kbd>R</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 5. Seiten-, Abschnitts- & Umbruchkontrolle -->
+    <!-- 5. Seiten- & Umbruchkontrolle -->
     <table class="expert collapsible">
-        <caption>5. Seiten-, Abschnitts- &amp; Umbruchkontrolle</caption>
+        <caption data-i18n="word_expert_5_caption">
+            5. Seiten-, Abschnitts- & Umbruchkontrolle
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Seitenumbruch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Spaltenumbruch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Abschnittsumbruch (nächste Seite)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Abschnittsumbruch (fortlaufend)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_5_page_break">Seitenumbruch</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_5_column_break">Spaltenumbruch</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_5_section_next">Abschnittsumbruch (nächste Seite)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_5_section_cont">Abschnittsumbruch (fortlaufend)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 6. Professionelles Arbeiten mit großen Dokumenten -->
+    <!-- 6. Große Dokumente -->
     <table class="expert collapsible">
-        <caption>6. Professionelles Arbeiten mit großen Dokumenten</caption>
+        <caption data-i18n="word_expert_6_caption">
+            6. Professionelles Arbeiten mit großen Dokumenten
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Navigationsbereich (Überschriften, Seiten, Treffer)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fußnote einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Datum einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Uhrzeit einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Kommentar einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_6_navpane">Navigationsbereich</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_6_footnote">Fußnote einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_6_date">Datum einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_6_time">Uhrzeit einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_6_comment">Kommentar einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 7. Suchen, Ersetzen & Automatisierung -->
+    <!-- 7. Suchen & Automatisierung -->
     <table class="expert collapsible">
-        <caption>7. Suchen, Ersetzen &amp; Automatisierung</caption>
+        <caption data-i18n="word_expert_7_caption">
+            7. Suchen, Ersetzen & Automatisierung
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Ersetzen (mit Format- &amp; Sonderzeichen)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatvorlagenbereich öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Makrodialog öffnen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F8</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatierungszeichen anzeigen / ausblenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_expert_7_replace">Ersetzen (mit Format- & Sonderzeichen)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_7_styles_pane">Formatvorlagenbereich öffnen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_7_macro">Makrodialog öffnen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>F8</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_7_show_marks">Formatierungszeichen anzeigen / ausblenden</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 8. Tabellen & Listen (ohne Maus) -->
+    <!-- 8. Tabellen & Listen -->
     <table class="expert collapsible">
-        <caption>8. Tabellen &amp; Listen (ohne Maus)</caption>
+        <caption data-i18n="word_expert_8_caption">
+            8. Tabellen & Listen (ohne Maus)
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Zellen wechseln<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Tabellenzeilen verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Aufzählungszeichen ein/aus<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Listenebene ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</td></tr>
+            <tr><td data-i18n="word_expert_8_cells">Zellen wechseln</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_8_move_rows">Tabellenzeilen verschieben</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+            <tr><td data-i18n="word_expert_8_bullets">Aufzählungszeichen ein/aus</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_expert_8_list_level">Listenebene ändern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</span></td></tr>
         </tbody>
     </table>
+
+
+
+
+
+
+
+
 
     <!-- 9. Produktivitäts-Shortcuts -->
-    <table class="expert collapsible">
-        <caption>9. Produktivitäts-Shortcuts (Power-User-Favoriten)</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Letzte Aktion wiederholen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Groß-/Kleinschreibung ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hyperlink einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Inhalte einfügen (Spezial)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ribbon-KeyTips aktivieren<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="expert collapsible">
+    <caption data-i18n="word_expert_9_caption">
+        9. Produktivitäts-Shortcuts (Power-User-Favoriten)
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_expert_9_repeat_last">Letzte Aktion wiederholen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_9_case_change">Groß-/Kleinschreibung ändern</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_9_insert_link">Hyperlink einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>K</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_9_paste_special">Inhalte einfügen (Spezial)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>V</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_9_keytips">Ribbon-KeyTips aktivieren</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 
     <!-- 10. Die 10 wichtigsten Word-Experten-Shortcuts -->
-    <table class="expert collapsible">
-        <caption>10. Die 10 wichtigsten Word-Experten-Shortcuts</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Standardformat anwenden<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Überschriften setzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absätze verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Absatzformatierung zurücksetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeichenformatierung löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatierungszeichen anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ersetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Letzte Aktion wiederholen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fußnote einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gehe zu<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
+<table class="expert collapsible">
+    <caption data-i18n="word_expert_10_caption">
+        10. Die 10 wichtigsten Word-Experten-Shortcuts
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_expert_10_standard">Standardformat anwenden</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_headings">Überschriften setzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_move_paragraphs">Absätze verschieben</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+        <tr><td data-i18n="word_expert_10_clear_para">Absatzformatierung zurücksetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_clear_char">Zeichenformatierung löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_show_marks">Formatierungszeichen anzeigen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_section_next">Abschnittsumbruch (nächste Seite)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_replace">Ersetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_expert_10_move_paragraphs2">Absätze verschieben</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+        <tr><td data-i18n="word_expert_10_goto">Gehe zu</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
 </div>
 
 
@@ -709,170 +1304,327 @@
 <!-- ========================================================= -->
 
 <div id="Word_Science" class="tab-content">
-    <h2 class="category-title word-theme">Word – Wissenschaftliche Spezialversion</h2>
+
+    <h2 class="category-title word-theme" data-i18n="word_science_title">
+        Word – Wissenschaftliche Spezialversion
+    </h2>
 
     <!-- 1. Struktur & Gliederung -->
     <table class="science collapsible">
-        <caption>1. Struktur &amp; Gliederung (zwingend für wissenschaftliche Arbeiten)</caption>
+        <caption data-i18n="word_science_1_caption">
+            1. Struktur & Gliederung (zwingend für wissenschaftliche Arbeiten)
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Überschrift 1 / 2 / 3 (Kapitelstruktur)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Standardformat (Textkörper)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absätze verschieben (Kapitelreihenfolge ändern)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Gliederungsebene ändern<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</td></tr>
-            <tr><td>Navigationsbereich (Überschriften prüfen)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
-    <p class="note"><strong>Best Practice:</strong> Keine manuelle Nummerierung. Kapitelstruktur ausschließlich über Formatvorlagen steuern.</p>
+            <tr><td data-i18n="word_science_1_headings">Überschrift 1 / 2 / 3 (Kapitelstruktur)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
 
-    <!-- 2. Zitieren, Fußnoten & wissenschaftliche Apparate -->
-    <table class="science collapsible">
-        <caption>2. Zitieren, Fußnoten &amp; wissenschaftliche Apparate</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Fußnote einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Datum einfügen (Versionierung)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hochgestellt (Fußnoten, Exponenten)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Tiefgestellt (Indizes, Formeln)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Kommentar (Betreuerhinweise, Review)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_science_1_standard">Standardformat (Textkörper)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_1_move_paragraphs">Absätze verschieben (Kapitelreihenfolge ändern)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+            <tr><td data-i18n="word_science_1_change_level">Gliederungsebene ändern</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Links / Rechts</span></td></tr>
+
+            <tr><td data-i18n="word_science_1_navpane">Navigationsbereich (Überschriften prüfen)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 3. Formatkontrolle & Fehlervermeidung -->
+    <p class="note" data-i18n="word_science_1_note">
+        <strong>Best Practice:</strong> Keine manuelle Nummerierung. Kapitelstruktur ausschließlich über Formatvorlagen steuern.
+    </p>
+
+    <!-- 2. Zitieren, Fußnoten & Apparate -->
     <table class="science collapsible">
-        <caption>3. Formatkontrolle &amp; Fehlervermeidung (kritisch)</caption>
+        <caption data-i18n="word_science_2_caption">
+            2. Zitieren, Fußnoten & wissenschaftliche Apparate
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Zeichenformatierung vollständig entfernen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatzformatierung zurücksetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatierungsüberprüfung<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F1</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatz- und Sonderzeichen anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rückkehr zum Textkörper<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_science_2_footnote">Fußnote einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_2_date">Datum einfügen (Versionierung)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_2_superscript">Hochgestellt (Fußnoten, Exponenten)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_2_subscript">Tiefgestellt (Indizes, Formeln)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_2_comment">Kommentar (Betreuerhinweise, Review)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
-    <p class="note"><strong>Typische Fehlerquellen:</strong> Manuelle Einzüge, harte Leerzeichen, manuelle Zeilenumbrüche, Copy-Paste aus PDFs.</p>
+
+    <!-- 3. Formatkontrolle -->
+    <table class="science collapsible">
+        <caption data-i18n="word_science_3_caption">
+            3. Formatkontrolle & Fehlervermeidung (kritisch)
+        </caption>
+        <thead>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td data-i18n="word_science_3_clear_char">Zeichenformatierung vollständig entfernen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_3_clear_para">Absatzformatierung zurücksetzen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_3_reveal_format">Formatierungsüberprüfung</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F1</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_3_show_marks">Absatz- und Sonderzeichen anzeigen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_3_return_body">Rückkehr zum Textkörper</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+        </tbody>
+    </table>
+
+    <p class="note" data-i18n="word_science_3_note">
+        <strong>Typische Fehlerquellen:</strong> Manuelle Einzüge, harte Leerzeichen, manuelle Zeilenumbrüche, Copy-Paste aus PDFs.
+    </p>
 
     <!-- 4. Seiten-, Abschnitts- & Layoutsteuerung -->
     <table class="science collapsible">
-        <caption>4. Seiten-, Abschnitts- &amp; Layoutsteuerung</caption>
+        <caption data-i18n="word_science_4_caption">
+            4. Seiten-, Abschnitts- & Layoutsteuerung
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Seitenumbruch<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Abschnittsumbruch (nächste Seite)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Abschnittsumbruch (fortlaufend)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Weicher Zeilenumbruch (z. B. in Tabellen)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_science_4_page_break">Seitenumbruch</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_4_section_next">Abschnittsumbruch (nächste Seite)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_4_section_cont">Abschnittsumbruch (fortlaufend)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_4_soft_break">Weicher Zeilenumbruch (z. B. in Tabellen)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>Enter</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
-    <p class="note"><strong>Wichtig:</strong> Neue Kapitel immer mit Abschnittsumbruch, nicht mit Leerzeilen.</p>
+
+    <p class="note" data-i18n="word_science_4_note">
+        <strong>Wichtig:</strong> Neue Kapitel immer mit Abschnittsumbruch, nicht mit Leerzeilen.
+    </p>
 
     <!-- 5. Tabellen, Abbildungen & Verweise -->
     <table class="science collapsible">
-        <caption>5. Tabellen, Abbildungen &amp; Verweise</caption>
+        <caption data-i18n="word_science_5_caption">
+            5. Tabellen, Abbildungen & Verweise
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Tabelle einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>N</kbd>, <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Navigation in Tabellen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Tabellenzeilen verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Beschriftung einfügen (Abbildungen/Tabellen)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Querverweis folgen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + Klick</td></tr>
+            <tr><td data-i18n="word_science_5_insert_table">Tabelle einfügen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>N</kbd>, <kbd>T</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_5_table_nav">Navigation in Tabellen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_5_move_rows">Tabellenzeilen verschieben</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+            <tr><td data-i18n="word_science_5_caption_insert">Beschriftung einfügen (Abbildungen/Tabellen)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_5_follow_ref">Querverweis folgen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + Klick</span></td></tr>
         </tbody>
     </table>
 
     <!-- 6. Arbeiten mit langen Dokumenten -->
     <table class="science collapsible">
-        <caption>6. Arbeiten mit langen Dokumenten (Dissertation, Sammelband)</caption>
+        <caption data-i18n="word_science_6_caption">
+            6. Arbeiten mit langen Dokumenten (Dissertation, Sammelband)
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Dokumentanfang / -ende<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Springen zu Seite, Abschnitt, Fußnote<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gliederung ein-/ausklappen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Plus / Minus</td></tr>
-            <tr><td>Überschriften-Navigation statt Scrollen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_science_6_doc_start_end">Dokumentanfang / -ende</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Pos1</kbd> / <kbd>Ende</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_6_jump_to">Springen zu Seite, Abschnitt, Fußnote</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_6_outline_toggle">Gliederung ein-/ausklappen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Plus / Minus</span></td></tr>
+
+            <tr><td data-i18n="word_science_6_nav_instead_scroll">Überschriften-Navigation statt Scrollen</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
     <!-- 7. Suchen, Ersetzen & formale Konsistenz -->
     <table class="science collapsible">
-        <caption>7. Suchen, Ersetzen &amp; formale Konsistenz</caption>
+        <caption data-i18n="word_science_7_caption">
+            7. Suchen, Ersetzen & formale Konsistenz
+        </caption>
         <thead>
-            <tr><th>Beschreibung</th><th>Shortcut / Suchcode</th></tr>
+            <tr>
+                <th data-i18n="col_description">Beschreibung</th>
+                <th data-i18n="col_shortcut">Shortcut / Suchcode</th>
+            </tr>
         </thead>
         <tbody>
-            <tr><td>Ersetzen (inkl. Format, Sonderzeichen, Absatzmarken)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatzmarke (Suchcode)<td class="shortcut-cell"> <span class="shortcut-text">^p</td></tr>
-            <tr><td>Tabulator (Suchcode)<td class="shortcut-cell"> <span class="shortcut-text">^t</td></tr>
-            <tr><td>Geschütztes Leerzeichen (Suchcode)<td class="shortcut-cell"> <span class="shortcut-text">^s</td></tr>
-            <tr><td>Geschütztes Leerzeichen einfügen („Abb.&nbsp;3“)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+            <tr><td data-i18n="word_science_7_replace">Ersetzen (inkl. Format, Sonderzeichen, Absatzmarken)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+            <tr><td data-i18n="word_science_7_code_paragraph">Absatzmarke (Suchcode)</td>
+                <td class="shortcut-cell"><span class="shortcut-text">^p</span></td></tr>
+
+            <tr><td data-i18n="word_science_7_code_tab">Tabulator (Suchcode)</td>
+                <td class="shortcut-cell"><span class="shortcut-text">^t</span></td></tr>
+
+            <tr><td data-i18n="word_science_7_code_nbsp">Geschütztes Leerzeichen (Suchcode)</td>
+                <td class="shortcut-cell"><span class="shortcut-text">^s</span></td></tr>
+
+            <tr><td data-i18n="word_science_7_insert_nbsp">Geschütztes Leerzeichen einfügen („Abb. 3“)</td>
+                <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
         </tbody>
     </table>
 
-    <!-- 8. Überarbeiten, Kommentieren & Versionierung -->
-    <table class="science collapsible">
-        <caption>8. Überarbeiten, Kommentieren &amp; Versionierung</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Kommentar einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Letzte Aktion wiederholen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Thesaurus (wissenschaftlicher Stil)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Rechtschreib- und Grammatikprüfung<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
-
-    <!-- 9. Mathematische & formale Sonderfunktionen -->
-    <table class="science collapsible">
-        <caption>9. Mathematische &amp; formale Sonderfunktionen</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Formel einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Hochgestellt (Exponenten)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Tiefgestellt (Indizes)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Gradzeichen (Ziffernblock)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>0176</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
-
-    <!-- 10. Die 10 wichtigsten Shortcuts für wissenschaftliches Arbeiten -->
-    <table class="science collapsible">
-        <caption>10. Die 10 wichtigsten Shortcuts für wissenschaftliches Arbeiten</caption>
-        <thead>
-            <tr><th>Beschreibung</th><th>Shortcut</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Kapitelstruktur<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Standardformat<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Fußnote einfügen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absatzformatierung zurücksetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Zeichenformatierung löschen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Formatierungszeichen anzeigen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Abschnittsumbruch (nächste Seite)<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Ersetzen<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
-            <tr><td>Absätze verschieben<td class="shortcut-cell"> <span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</td></tr>
-            <tr><td>Gehe zu<td class="shortcut-cell"> <span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
-        </tbody>
-    </table>
 </div>
 
-    <footer>
-      <div id="Kimlik" >© Dilaver Bölükbaşı</div>
-      <div id="lastUpdate">: <!-- wird von fs.js automatisch gesetzt -->
-     </div> 
-    </footer>
+<!-- 8. Überarbeiten, Kommentieren & Versionierung -->
+<table class="science collapsible">
+    <caption data-i18n="word_science_8_caption">
+        8. Überarbeiten, Kommentieren & Versionierung
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_science_8_comment">Kommentar einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_8_repeat">Letzte Aktion wiederholen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F4</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_8_thesaurus">Thesaurus (wissenschaftlicher Stil)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Shift</kbd> + <kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_8_spellcheck">Rechtschreib- und Grammatikprüfung</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F7</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
+<!-- 9. Mathematische & formale Sonderfunktionen -->
+<table class="science collapsible">
+    <caption data-i18n="word_science_9_caption">
+        9. Mathematische & formale Sonderfunktionen
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_science_9_formula">Formel einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>=</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_9_superscript">Hochgestellt (Exponenten)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_9_subscript">Tiefgestellt (Indizes)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>+</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_9_degree">Gradzeichen (Ziffernblock)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>0176</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
+<!-- 10. Die 10 wichtigsten Shortcuts -->
+<table class="science collapsible">
+    <caption data-i18n="word_science_10_caption">
+        10. Die 10 wichtigsten Shortcuts für wissenschaftliches Arbeiten
+    </caption>
+    <thead>
+        <tr>
+            <th data-i18n="col_description">Beschreibung</th>
+            <th data-i18n="col_shortcut">Shortcut</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td data-i18n="word_science_10_structure">Kapitelstruktur</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> / <kbd>2</kbd> / <kbd>3</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_standard">Standardformat</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_footnote">Fußnote einfügen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_clear_para">Absatzformatierung zurücksetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Q</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_clear_char">Zeichenformatierung löschen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Leertaste</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_show_marks">Formatierungszeichen anzeigen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>8</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_section_next">Abschnittsumbruch (nächste Seite)</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>P</kbd>, <kbd>B</kbd>, <kbd>N</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_replace">Ersetzen</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Strg</kbd> + <kbd>H</kbd></span><button class="copy-btn">Copy</button></td></tr>
+
+        <tr><td data-i18n="word_science_10_move_paragraphs">Absätze verschieben</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>Alt</kbd> + <kbd>Shift</kbd> + Pfeil hoch / runter</span></td></tr>
+
+        <tr><td data-i18n="word_science_10_goto">Gehe zu</td>
+            <td class="shortcut-cell"><span class="shortcut-text"><kbd>F5</kbd></span><button class="copy-btn">Copy</button></td></tr>
+    </tbody>
+</table>
+
+<footer>
+    <div id="Kimlik" data-i18n="footer_author">© Dilaver Bölükbaşı</div>
+    <div id="lastUpdate" data-i18n="footer_lastupdate">
+        <!-- wird von fs.js automatisch gesetzt -->
+    </div>
+</footer>
 
 <script src="javascript/scriptWE.js"></script>
+<script src="javascript/app.js" defer></script>
 
 </body>
 </html>

@@ -374,6 +374,48 @@ p.note {
     transform: translateY(0);
 }
 
+
+/* Language Switcher */
+.lang-switch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.lang-btn {
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-btn img {
+    width: 26px;
+    height: 26px;
+    pointer-events: none;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.lang-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+
 /* Dark-Mode Toggle Button */
 .dark-toggle {
     margin: 10px 0 20px;
