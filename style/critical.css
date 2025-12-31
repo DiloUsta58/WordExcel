@@ -1,0 +1,193 @@
+:root {
+    --Isim_Anlam_Ayet:#c9a44d;
+    --excel-color: #217346;
+    --word-color: #116cf5;
+    --pp-color: #b7472a;
+}
+
+/* Grundlayout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    padding: 0 5px;
+    background: #ffffff;
+    color: #000000;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Sticky Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--nav-bg, #ffffff);
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(8px);
+}
+
+body {
+    padding-top: calc(var(--navbar-height, 60px));
+}
+
+body.dark .navbar {
+    background: rgba(30,30,30,0.85);
+    border-bottom: 1px solid #444;
+}
+
+/* Tabellen-Grundlayout */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 18px 0 28px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+caption {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* kbd */
+kbd {
+    background: #eee;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    font-family: "Segoe UI", monospace;
+    font-size: 0.95em;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.tab-btn.active {
+    background: #0078ff;
+    color: white;
+    border-color: #005fcc;
+}
+
+/* PDF Button Basis */
+.pdf-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+/* Dark-Mode Toggle Basis */
+.dark-toggle {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+/* Language Button Basis */
+.lang-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Search */
+.search-field {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.search-field:focus {
+    outline: none;
+    border-color: #0078ff;
+}
+
+/* Dark Mode Basis */
+body.dark {
+    background: #1a1a1a;
+    color: #e6e6e6;
+}
+
+body.dark table {
+    border-color: #555;
+}
+
+body.dark th {
+    background: #333 !important;
+    color: #fff;
+}
+
+body.dark td {
+    border-color: #5f5d5d;
+}
+
+body.dark kbd {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Mobile Grundlayout */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    th, td {
+        padding: 8px;
+    }
+}

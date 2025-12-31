@@ -1,0 +1,482 @@
+/* =========================================
+   TABLE THEMES
+   ========================================= */
+
+table.excel caption { color: #0a7d00; }
+table.excel th { background: #d8f5d2; border-color: #8cd68a; }
+table.excel td { border-color: #8cd68a; }
+
+table.word caption { color: var(--word-color); }
+table.word th { background: #d7e7ff; border-color: #7fb0ff; }
+table.word td { border-color: #7fb0ff; }
+
+table.expert caption { color: var(--word-color); }
+table.expert th { background: #d7e7ff; border-color: #7fb0ff; }
+table.expert td { border-color: #7fb0ff; }
+
+table.science caption { color: var(--word-color); }
+table.science th { background: #d7e7ff; border-color: #7fb0ff; }
+table.science td { border-color: #7fb0ff; }
+
+/* Kategorie-Überschrift */
+.category-title {
+    margin-top: 25px;
+    padding: 8px;
+    border-left: 4px solid #ccc;
+    font-size: 1.1rem;
+}
+
+/* Theme-Klassen */
+.word-theme { border-color: var(--word-color); color: var(--word-color); }
+.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
+.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
+
+/* Einheitliche Spaltenbreite */
+table th, table td { box-sizing: border-box; }
+
+/* =========================================
+   COLLAPSIBLE TABLES
+   ========================================= */
+
+.collapsible tbody {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    max-height: 1000px;
+}
+
+.collapsible.closed tbody { max-height: 0; }
+
+table.collapsible > caption {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    background: var(--caption-bg, #2e7d32);
+    color: white;
+    border-radius: 6px 6px 0 0;
+    user-select: none;
+    position: relative;
+}
+
+table.collapsible > caption::after {
+    content: "▾";
+    position: absolute;
+    right: 12px;
+    transition: transform 0.2s ease;
+}
+
+table.collapsible.collapsed > caption::after {
+    transform: rotate(-90deg);
+}
+
+table.collapsible.collapsed thead,
+table.collapsible.collapsed tbody {
+    display: none;
+}
+
+/* Theme Variablen */
+table.excel { --theme-text: #1b5e20; }
+table.word { --theme-text: #1565c0; }
+table.expert { --theme-text: #1565c0; }
+table.science { --theme-text: #1565c0; }
+
+table.collapsible > caption { background: var(--theme-bg); color: var(--theme-text); }
+body.dark table.collapsible > caption { background: var(--theme-bg-dark); }
+table.collapsible > caption::after { color: var(--theme-text); }
+
+.shortcut-cell .copy-btn { background: var(--theme-bg); color: var(--theme-text); }
+body.dark .shortcut-cell .copy-btn { background: var(--theme-bg-dark); }
+
+/* =========================================
+   ICONS IN CAPTION
+   ========================================= */
+
+table.excel > caption::before,
+table.word > caption::before,
+table.expert > caption::before,
+table.science > caption::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+table.excel > caption::before { background-image: url('../icons/excel.svg'); }
+table.word > caption::before { background-image: url('https://img.icons8.com/color/48/microsoft-word-2019.png'); }
+table.expert > caption::before { background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png'); }
+table.science > caption::before { background-image: url('../icons/science.svg'); }
+
+/* Light Mode Icons */
+body:not(.dark) table.excel > caption::before,
+body:not(.dark) table.word > caption::before,
+body:not(.dark) table.expert > caption::before,
+body:not(.dark) table.science > caption::before {
+    filter: brightness(0.95);
+}
+
+/* Dark Mode Icons */
+body.dark table.excel > caption::before,
+body.dark table.word > caption::before,
+body.dark table.expert > caption::before,
+body.dark table.science > caption::before {
+    filter: brightness(1.25) contrast(1.1);
+}
+
+table.excel > caption::before,
+table.word > caption::before,
+table.expert > caption::before,
+table.science > caption::before {
+    transition: filter 0.25s ease;
+}
+
+/* =========================================
+   TEXT / NOTES
+   ========================================= */
+
+table td:last-child {
+    white-space: normal;
+    word-break: break-word;
+    text-align: left;
+}
+
+p.note {
+    margin: -12px 0 18px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* =========================================
+   PDF BUTTON
+   ========================================= */
+
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.pdf-btn:hover { transform: translateY(-1px); }
+
+.pdf-btn.active {
+    background: #0a0808;
+    color: white;
+    border-color: #301f1f98;
+}
+
+/* =========================================
+   LANGUAGE SWITCHER
+   ========================================= */
+
+.lang-switch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.lang-btn {
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-btn img {
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.lang-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   DARK MODE TOGGLE
+   ========================================= */
+
+.dark-toggle {
+    margin: 10px 0 20px;
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.dark-toggle-icon { font-size: 1.1rem; }
+
+body.dark .dark-toggle {
+    background: #333;
+    color: #eee;
+    border-color: #555;
+}
+
+/* =========================================
+   SEARCH RESET + COUNT
+   ========================================= */
+
+.search-reset {
+    padding: 4px 10px;
+    border: none;
+    background: #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.search-reset:hover { background: #ccc; }
+
+.search-count {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+body.dark .search-reset { background: #444; color: #eee; }
+body.dark .search-count { color: #bbb; }
+
+/* =========================================
+   COPY BUTTON
+   ========================================= */
+
+.shortcut-cell {
+    position: relative;
+    padding-right: 40px;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--btn-bg, #444);
+    color: white;
+    border: none;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+tbody tr:hover .copy-btn { opacity: 1; }
+
+body.dark .copy-btn { background: #666; }
+
+/* =========================================
+   PRINT MODE
+   ========================================= */
+
+@media print {
+
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .navbar,
+    .tab-buttons,
+    .dark-toggle,
+    .pdf-btn,
+    #searchContainer {
+        display: none !important;
+    }
+
+    table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+
+    #printHeader {
+        display: flex !important;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 2px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    #printHeader img {
+        height: 50px;
+        width: auto;
+    }
+
+    body.dark {
+        background: #1a1a1a !important;
+        color: #e6e6e6 !important;
+    }
+
+    body:not(.dark) {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    body.dark kbd {
+        background: #2a2a2a !important;
+        color: #fff !important;
+        border-color: #555 !important;
+    }
+
+    body:not(.dark) kbd {
+        background: #eee !important;
+        color: #000 !important;
+        border-color: #bbb !important;
+    }
+}
+
+#printHeader { display: none; }
+
+/* PRINT WATERMARK */
+@media print {
+    body::after {
+        content: "DiloUsta Edition";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 80px;
+        font-weight: bold;
+        color: rgba(150, 150, 150, 0.15);
+        pointer-events: none;
+        z-index: 9999;
+        white-space: nowrap;
+    }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        overflow: hidden;
+        font-size: clamp(13px, 2.5vw, 16px);
+    }
+
+    th, td {
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        padding: 10px 12px;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 35%; }
+    th:nth-child(2), td:nth-child(2) { width: 65%; }
+
+    caption { font-size: clamp(16px, 4vw, 22px); }
+
+    table caption::before {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+    }
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .lang-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .lang-btn img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 15px;
+        padding: 10px 16px;
+    }
+
+    table { font-size: 14px; }
+    th, td { padding: 8px 10px; }
+
+    table caption::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    #pdfExportBtn { float: right; }
+}
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 1025px) {
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 15.5px;
+        padding: 10px 18px;
+    }
+
+    table { font-size: 15px; }
+
+    th, td {
+        padding: 10px 14px;
+        width: 50%;
+    }
+
+    table caption::before {
+        width: 22px;
+        height: 22px;
+    }
+
+    #pdfExportBtn { float: right; }
+}
