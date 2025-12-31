@@ -149,7 +149,7 @@ p.note {
 }
 
 /* =========================================
-   PDF BUTTON
+   PDF BUTTON (Apple kompakt)
    ========================================= */
 
 .pdf-btn {
@@ -157,23 +157,21 @@ p.note {
     align-items: center;
     gap: 8px;
     border: 1px solid #ccc;
-    background: #f5f5f5;
+    background: #f5f5f7;
     cursor: pointer;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 4px 9px !important;
+    font-size: 11.5px !important;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.pdf-btn:hover { transform: translateY(-1px); }
-
-.pdf-btn.active {
-    background: #0a0808;
-    color: white;
-    border-color: #301f1f98;
+.pdf-btn:hover {
+    filter: brightness(1.05);
 }
 
 /* =========================================
-   LANGUAGE SWITCHER
+   LANGUAGE SWITCHER (Apple kompakt)
    ========================================= */
 
 .lang-switch {
@@ -184,8 +182,8 @@ p.note {
 }
 
 .lang-btn {
-    background: var(--bg-secondary);
-    border: 2px solid transparent;
+    background: #f5f5f7;
+    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 4px;
     cursor: pointer;
@@ -204,40 +202,41 @@ p.note {
 }
 
 .lang-btn:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    filter: brightness(1.05);
 }
 
 .lang-btn.active {
-    border-color: var(--accent);
-    background: var(--accent-light);
-    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    border-color: #007aff;
+    background: #e8f0ff;
 }
 
 /* =========================================
-   DARK MODE TOGGLE
+   DARK MODE TOGGLE (Apple kompakt)
    ========================================= */
 
 .dark-toggle {
     margin: 10px 0 20px;
-    background: #f0f0f0;
+    background: #f5f5f7;
     color: #333;
     border: 1px solid #ccc;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.dark-toggle-icon { font-size: 1.1rem; }
+.dark-toggle:hover {
+    filter: brightness(1.05);
+}
 
 body.dark .dark-toggle {
-    background: #333;
-    color: #eee;
-    border-color: #555;
+    background: #2c2c2e;
+    color: #f2f2f7;
+    border-color: #3a3a3c;
 }
 
 /* =========================================
@@ -278,7 +277,7 @@ body.dark .search-count { color: #bbb; }
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--btn-bg, #444);
+    background: #444;
     color: white;
     border: none;
     padding: 4px 6px;
@@ -375,7 +374,7 @@ body.dark .copy-btn { background: #666; }
 }
 
 /* =========================================
-   MOBILE
+   MOBILE (Apple kompakt)
    ========================================= */
 
 @media (max-width: 600px) {
@@ -412,23 +411,23 @@ body.dark .copy-btn { background: #666; }
     .pdf-btn,
     .dark-toggle,
     .lang-btn {
-        font-size: 13px;
-        padding: 8px 12px;
+        font-size: 11.5px;
+        padding: 5px 9px;
     }
 
     .lang-btn {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
     }
 
     .lang-btn img {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
     }
 }
 
 /* =========================================
-   TABLET
+   TABLET (Apple kompakt)
    ========================================= */
 
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -437,8 +436,8 @@ body.dark .copy-btn { background: #666; }
     .pdf-btn,
     .dark-toggle,
     .lang-btn {
-        font-size: 15px;
-        padding: 10px 16px;
+        font-size: 12.5px;
+        padding: 6px 11px;
     }
 
     table { font-size: 14px; }
@@ -453,7 +452,7 @@ body.dark .copy-btn { background: #666; }
 }
 
 /* =========================================
-   DESKTOP
+   DESKTOP (Apple kompakt)
    ========================================= */
 
 @media (min-width: 1025px) {
@@ -462,8 +461,8 @@ body.dark .copy-btn { background: #666; }
     .pdf-btn,
     .dark-toggle,
     .lang-btn {
-        font-size: 15.5px;
-        padding: 10px 18px;
+        font-size: 13px;
+        padding: 7px 12px;
     }
 
     table { font-size: 15px; }
