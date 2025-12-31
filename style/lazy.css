@@ -87,7 +87,7 @@ table.collapsible > caption::after { color: var(--theme-text); }
 body.dark .shortcut-cell .copy-btn { background: var(--theme-bg-dark); }
 
 /* =========================================
-   ICONS IN CAPTION
+   ICONS IN CAPTION (Apple kompakt)
    ========================================= */
 
 table.excel > caption::before,
@@ -96,9 +96,9 @@ table.expert > caption::before,
 table.science > caption::before {
     content: "";
     display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
@@ -110,27 +110,10 @@ table.expert > caption::before { background-image: url('https://img.icons8.com/f
 table.science > caption::before { background-image: url('../icons/science.svg'); }
 
 /* Light Mode Icons */
-body:not(.dark) table.excel > caption::before,
-body:not(.dark) table.word > caption::before,
-body:not(.dark) table.expert > caption::before,
-body:not(.dark) table.science > caption::before {
-    filter: brightness(0.95);
-}
+body:not(.dark) table caption::before { filter: brightness(0.95); }
 
 /* Dark Mode Icons */
-body.dark table.excel > caption::before,
-body.dark table.word > caption::before,
-body.dark table.expert > caption::before,
-body.dark table.science > caption::before {
-    filter: brightness(1.25) contrast(1.1);
-}
-
-table.excel > caption::before,
-table.word > caption::before,
-table.expert > caption::before,
-table.science > caption::before {
-    transition: filter 0.25s ease;
-}
+body.dark table caption::before { filter: brightness(1.25) contrast(1.1); }
 
 /* =========================================
    TEXT / NOTES
@@ -155,7 +138,7 @@ p.note {
 .pdf-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     border: 1px solid #ccc;
     background: #f5f5f7;
     cursor: pointer;
@@ -166,9 +149,7 @@ p.note {
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.pdf-btn:hover {
-    filter: brightness(1.05);
-}
+.pdf-btn:hover { filter: brightness(1.05); }
 
 /* =========================================
    LANGUAGE SWITCHER (Apple kompakt)
@@ -196,14 +177,12 @@ p.note {
 }
 
 .lang-btn img {
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
     pointer-events: none;
 }
 
-.lang-btn:hover {
-    filter: brightness(1.05);
-}
+.lang-btn:hover { filter: brightness(1.05); }
 
 .lang-btn.active {
     border-color: #007aff;
@@ -229,9 +208,7 @@ p.note {
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.dark-toggle:hover {
-    filter: brightness(1.05);
-}
+.dark-toggle:hover { filter: brightness(1.05); }
 
 body.dark .dark-toggle {
     background: #2c2c2e;
@@ -402,8 +379,8 @@ body.dark .copy-btn { background: #666; }
     caption { font-size: clamp(16px, 4vw, 22px); }
 
     table caption::before {
-        width: 18px;
-        height: 18px;
+        width: 14px;
+        height: 14px;
         margin-right: 6px;
     }
 
@@ -421,8 +398,8 @@ body.dark .copy-btn { background: #666; }
     }
 
     .lang-btn img {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
     }
 }
 
@@ -444,8 +421,8 @@ body.dark .copy-btn { background: #666; }
     th, td { padding: 8px 10px; }
 
     table caption::before {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
     }
 
     #pdfExportBtn { float: right; }
@@ -473,8 +450,8 @@ body.dark .copy-btn { background: #666; }
     }
 
     table caption::before {
-        width: 22px;
-        height: 22px;
+        width: 16px;
+        height: 16px;
     }
 
     #pdfExportBtn { float: right; }
