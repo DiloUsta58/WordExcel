@@ -22,12 +22,12 @@
 // });
 
 
-//--  Normalzustand  / Anfang zu bleibt dann beim klicken auf--
-document.querySelectorAll("table.collapsible > caption").forEach(caption => {
+//--  Normalzustand --
+/* document.querySelectorAll("table.collapsible > caption").forEach(caption => {
     caption.addEventListener("click", () => {
        caption.parentElement.classList.toggle("collapsed");
     });
-});
+}); */
 
 //Wenn Alles geschlossen geladen soll
 // window.addEventListener("DOMContentLoaded", () => {
@@ -35,6 +35,36 @@ document.querySelectorAll("table.collapsible > caption").forEach(caption => {
 //        table.classList.add("collapsed");
 //     });
 // });
+
+// COLLAPSIBLE: Zustand speichern & wiederherstellen
+document.querySelectorAll("table.collapsible").forEach(table => {
+    const id = table.id;
+
+    // Zustand wiederherstellen
+    const saved = localStorage.getItem("collapse_" + id);
+    if (saved === "1") {
+        table.classList.add("collapsed");
+    }
+
+    // Caption finden
+    const caption = table.querySelector("caption");
+    if (!caption) {
+        console.warn("Keine Caption gefunden für Tabelle:", id);
+        return;
+    }
+
+    caption.style.cursor = "pointer";
+
+    // Klick-Event
+    caption.addEventListener("click", () => {
+        table.classList.toggle("collapsed");
+
+        const isCollapsed = table.classList.contains("collapsed");
+        localStorage.setItem("collapse_" + id, isCollapsed ? "1" : "0");
+    });
+});
+
+
 
 
 
@@ -267,15 +297,13 @@ document.addEventListener("click", (e) => {
     }
 });
 
+/* =========================
+   .... LASTUPDATE!! LOCALSTRING!!
+    ========================= */
     const el = document.getElementById("lastUpdate");
   if (el) {
     // Hole das letzte Änderungsdatum der Seite
     const lastModified = document.lastModified;
-
-/* =========================
-   6) LAST UPDATE
-    ========================= */
-
     // Optional: formatiere Datum/Zeit für Türkisch
     const formatted = new Date(lastModified).toLocaleString("tr-TR", {
       dateStyle: "short",

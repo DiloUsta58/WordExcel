@@ -136,6 +136,19 @@ table td {
 
 
 /* Aufklapp‑Funktion */
+/* Collapsible Grundzustand */
+.collapsible tbody {
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    max-height: 1000px; /* groß genug für Inhalt */
+}
+
+/* Geschlossen */
+.collapsible.closed tbody {
+    max-height: 0;
+}
+
+
 /* Caption klickbar machen */
 table.collapsible > caption {
     cursor: pointer;

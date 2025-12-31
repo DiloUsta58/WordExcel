@@ -1,4 +1,7 @@
-// Sprache laden und anwenden
+/* =========================
+   6) Sprache laden und anwenden
+    ========================= */
+
 async function setLanguage(lang) {
     try {
         const response = await fetch(`lang/${lang}.json`);
@@ -35,6 +38,9 @@ async function setLanguage(lang) {
     }
 }
 
+/* =========================
+   2) LAST UPDATE
+    ========================= */
 function updateLastUpdate(lang, translations) {
     const el = document.getElementById("lastUpdate");
     if (!el) return;
@@ -55,9 +61,9 @@ function updateLastUpdate(lang, translations) {
 
     el.textContent = `${label} ${formatted}`;
 }
-
-
-// Aktiven Sprachbutton hervorheben
+/* =========================
+   3) Aktiven Sprachbutton hervorheben
+    ========================= */
 function updateActiveLanguage(lang) {
     document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
