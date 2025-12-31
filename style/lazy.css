@@ -1,6 +1,6 @@
-/* =========================================
-   TABLE THEMES
-   ========================================= */
+/* ------------------------------------------------------------
+   TABLE THEMES (Excel, Word, Expert, Science)
+   ------------------------------------------------------------ */
 
 table.excel caption { color: #0a7d00; }
 table.excel th { background: #d8f5d2; border-color: #8cd68a; }
@@ -34,9 +34,16 @@ table.science td { border-color: #7fb0ff; }
 /* Einheitliche Spaltenbreite */
 table th, table td { box-sizing: border-box; }
 
+/* Einheitliche Spaltenbreite */
+table th, table td { box-sizing: border-box; }
+
 /* =========================================
    COLLAPSIBLE TABLES
    ========================================= */
+
+/* ------------------------------------------------------------
+   COLLAPSIBLE TABLES
+   ------------------------------------------------------------ */
 
 .collapsible tbody {
     overflow: hidden;
@@ -82,13 +89,12 @@ table.science { --theme-text: #1565c0; }
 table.collapsible > caption { background: var(--theme-bg); color: var(--theme-text); }
 body.dark table.collapsible > caption { background: var(--theme-bg-dark); }
 table.collapsible > caption::after { color: var(--theme-text); }
-
 .shortcut-cell .copy-btn { background: var(--theme-bg); color: var(--theme-text); }
 body.dark .shortcut-cell .copy-btn { background: var(--theme-bg-dark); }
 
-/* =========================================
+/* ------------------------------------------------------------
    ICONS IN CAPTION (Apple kompakt)
-   ========================================= */
+   ------------------------------------------------------------ */
 
 table.excel > caption::before,
 table.word > caption::before,
@@ -104,10 +110,10 @@ table.science > caption::before {
     vertical-align: middle;
 }
 
-table.excel > caption::before { background-image: url('../icons/excel.svg'); }
+table.excel > caption::before { background-image: url('https://img.icons8.com/color/48/microsoft-excel-2019.png'); }
 table.word > caption::before { background-image: url('https://img.icons8.com/color/48/microsoft-word-2019.png'); }
 table.expert > caption::before { background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png'); }
-table.science > caption::before { background-image: url('../icons/science.svg'); }
+table.science > caption::before { background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png'); }
 
 /* Light Mode Icons */
 body:not(.dark) table caption::before { filter: brightness(0.95); }
@@ -115,9 +121,9 @@ body:not(.dark) table caption::before { filter: brightness(0.95); }
 /* Dark Mode Icons */
 body.dark table caption::before { filter: brightness(1.25) contrast(1.1); }
 
-/* =========================================
+/* ------------------------------------------------------------
    TEXT / NOTES
-   ========================================= */
+   ------------------------------------------------------------ */
 
 table td:last-child {
     white-space: normal;
@@ -131,9 +137,9 @@ p.note {
     color: #555;
 }
 
-/* =========================================
+/* ------------------------------------------------------------
    PDF BUTTON (Apple kompakt)
-   ========================================= */
+   ------------------------------------------------------------ */
 
 .pdf-btn {
     display: flex;
@@ -150,10 +156,9 @@ p.note {
 }
 
 .pdf-btn:hover { filter: brightness(1.05); }
-
-/* =========================================
+/* ------------------------------------------------------------
    LANGUAGE SWITCHER (Apple kompakt)
-   ========================================= */
+   ------------------------------------------------------------ */
 
 .lang-switch {
     display: flex;
@@ -189,9 +194,9 @@ p.note {
     background: #e8f0ff;
 }
 
-/* =========================================
+/* ------------------------------------------------------------
    DARK MODE TOGGLE (Apple kompakt)
-   ========================================= */
+   ------------------------------------------------------------ */
 
 .dark-toggle {
     margin: 10px 0 20px;
@@ -216,9 +221,9 @@ body.dark .dark-toggle {
     border-color: #3a3a3c;
 }
 
-/* =========================================
+/* ------------------------------------------------------------
    SEARCH RESET + COUNT
-   ========================================= */
+   ------------------------------------------------------------ */
 
 .search-reset {
     padding: 4px 10px;
@@ -240,9 +245,9 @@ body.dark .dark-toggle {
 body.dark .search-reset { background: #444; color: #eee; }
 body.dark .search-count { color: #bbb; }
 
-/* =========================================
+/* ------------------------------------------------------------
    COPY BUTTON
-   ========================================= */
+   ------------------------------------------------------------ */
 
 .shortcut-cell {
     position: relative;
@@ -269,9 +274,9 @@ tbody tr:hover .copy-btn { opacity: 1; }
 
 body.dark .copy-btn { background: #666; }
 
-/* =========================================
+/* ------------------------------------------------------------
    PRINT MODE
-   ========================================= */
+   ------------------------------------------------------------ */
 
 @media print {
 
@@ -331,9 +336,9 @@ body.dark .copy-btn { background: #666; }
     }
 }
 
+/* PRINT WATERMARK */
 #printHeader { display: none; }
 
-/* PRINT WATERMARK */
 @media print {
     body::after {
         content: "DiloUsta Edition";
@@ -349,10 +354,9 @@ body.dark .copy-btn { background: #666; }
         white-space: nowrap;
     }
 }
-
-/* =========================================
+/* ============================================================
    MOBILE (Apple kompakt)
-   ========================================= */
+   ============================================================ */
 
 @media (max-width: 600px) {
 
@@ -403,9 +407,9 @@ body.dark .copy-btn { background: #666; }
     }
 }
 
-/* =========================================
+/* ============================================================
    TABLET (Apple kompakt)
-   ========================================= */
+   ============================================================ */
 
 @media (min-width: 601px) and (max-width: 1024px) {
 
@@ -428,9 +432,9 @@ body.dark .copy-btn { background: #666; }
     #pdfExportBtn { float: right; }
 }
 
-/* =========================================
+/* ============================================================
    DESKTOP (Apple kompakt)
-   ========================================= */
+   ============================================================ */
 
 @media (min-width: 1025px) {
 
@@ -456,3 +460,204 @@ body.dark .copy-btn { background: #666; }
 
     #pdfExportBtn { float: right; }
 }
+
+/* ============================================================
+   APPLE CARD TABLE BASE (Grundstruktur)
+   ============================================================ */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 28px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* Apple Card Light */
+    background: var(--light-card);
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.7)
+    );
+
+    border: 0.5px solid var(--light-border);
+    box-shadow:
+        0 0.3px 0.5px rgba(0,0,0,0.04),
+        0 1px 2px rgba(0,0,0,0.06),
+        0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.dark table {
+    background: var(--dark-card);
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.02)
+    );
+
+    border: 0.5px solid var(--dark-border);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+}
+
+th, td {
+    padding: 6px 10px;
+    border: 0.5px solid var(--light-border);
+}
+
+th {
+    background: var(--light-soft);
+}
+
+body.dark th {
+    background: var(--dark-soft);
+    color: #fff;
+}
+
+body.dark td {
+    border-color: var(--dark-border);
+}
+
+/* ============================================================
+   TABS (Apple kompakt)
+   ============================================================ */
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn,
+.pdf-btn,
+.dark-toggle,
+.lang-btn {
+    font-size: 20px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    background: var(--light-soft);
+    color: var(--light-text);
+    border: 0.5px solid var(--light-border);
+
+    box-shadow:
+        0 0.3px 0.5px rgba(0,0,0,0.04),
+        0 1px 2px rgba(0,0,0,0.06),
+        0 4px 12px rgba(0,0,0,0.08);
+
+    transition: background 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tab-btn:hover,
+.pdf-btn:hover,
+.dark-toggle:hover,
+.lang-btn:hover {
+    background: var(--light-hover);
+    transform: translateY(-2px);
+    box-shadow:
+        0 0.5px 1px rgba(0,0,0,0.06),
+        0 2px 4px rgba(0,0,0,0.10),
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+.tab-btn.active {
+    background: var(--light-card);
+    border-color: var(--light-border);
+}
+
+/* Farbige Tabs */
+.excel-tab.active {
+    background: var(--excel-color);
+    border-color: var(--excel-color);
+    color: white;
+}
+
+.word-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
+}
+
+.pp-tab.active {
+    background: var(--pp-color);
+    border-color: var(--pp-color);
+    color: white;
+}
+
+.science-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
+}
+
+/* Icons in Tabs */
+.tab-btn img,
+.tab-btn svg {
+    width: 16px;
+    height: 16px;
+    padding: 0 5px 0;
+}
+
+.lang-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* ============================================================
+   SEARCH FIELD
+   ============================================================ */
+
+.search-field {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--light-card);
+    color: var(--light-text);
+    border: 0.5px solid var(--light-border);
+
+    box-shadow:
+        0 0.3px 0.5px rgba(0,0,0,0.04),
+        0 1px 2px rgba(0,0,0,0.06),
+        0 4px 12px rgba(0,0,0,0.08);
+
+    transition: border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-field:focus {
+    border-color: #007aff;
+    transform: translateY(-2px);
+}
+
+/* Search Highlight */
+mark.search-highlight {
+    background: #007aff;
+    color: white;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   KBD
+   ============================================================ */
+
+kbd {
+    background: #eee;
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+}
+
+body.dark kbd {
+    background: var(--dark-soft);
+    border-color: var(--dark-border);
+    color: #fff;
+}
+
