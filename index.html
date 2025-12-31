@@ -55,6 +55,7 @@
 <div class="navbar">
     <!-- Sprachumschalter -->
 <div class="lang-switch">
+
     Dil / Sprache:<br>
     <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">
         <img src="icons/flagtr.png" alt="TR">
@@ -63,35 +64,43 @@
     <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">
         <img src="icons/flagde.png" alt="DE">
     </button>
-</div>
-    <!-- Dark Mode Button -->
+
+     <!-- Dark Mode Button -->
     <button class="dark-toggle" id="darkToggle">
         <span class="dark-toggle-icon" id="darkToggleIcon">🌙</span>
         <span id="darkToggleLabel" data-i18n="dark_mode">Dark‑Mode</span>
     </button>
+    <!-- PDF Export -->
+    <button class="pdf-btn" id="pdfExportBtn">
+        <span data-i18n="pdf_export">PDF Export</span>
+        <img src="icons/adobe.png" alt="">
+    </button>    
+</div>
+
+
 
     <!-- Tabs -->
-    <button class="tab-btn active" data-tab="Excel_Basis">
+    <button class="tab-btn excel-tab active" data-tab="Excel_Basis">
         <img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="">
         <span data-i18n="tab_excel_basic">Excel Basis</span>
     </button>
 
-    <button class="tab-btn" data-tab="Excel_Power_User">
+    <button class="tab-btn excel-tab" data-tab="Excel_Power_User">
         <img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="">
         <span data-i18n="tab_excel_power">Excel Power‑User</span>
     </button>
 
-    <button class="tab-btn" data-tab="Word_Basis">
+    <button class="tab-btn word-tab" data-tab="Word_Basis">
         <img src="https://img.icons8.com/color/48/microsoft-word-2019.png" alt="">
         <span data-i18n="tab_word_basic">Word – Basis</span>
     </button>
 
-    <button class="tab-btn" data-tab="Word_Expert">
+    <button class="tab-btn word-tab" data-tab="Word_Expert">
         <img src="https://img.icons8.com/fluency/48/microsoft-word-2019.png" alt="">
         <span data-i18n="tab_word_expert">Word Experten</span>
     </button>
 
-    <button class="tab-btn" data-tab="Word_Science">
+    <button class="tab-btn word-tab" data-tab="Word_Science">
         <img src="https://img.icons8.com/fluency/48/graduation-cap.png" alt="">
         <span data-i18n="tab_word_science">Word – Wissenschaftlich</span>
     </button>
@@ -103,11 +112,6 @@
         <span id="searchCount" class="search-count"></span>
     </div>
 
-    <!-- PDF Export -->
-    <button class="pdf-btn" id="pdfExportBtn">
-        <span data-i18n="pdf_export">PDF Export</span>
-        <img src="icons/adobe.png" alt="">
-    </button>
 
 </div>
 

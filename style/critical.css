@@ -99,12 +99,12 @@ kbd {
 .pdf-btn,
 .dark-toggle,
 .lang-btn {
-    font-size: 12px;
-    padding: 5px 10px;
+    font-size: 20px;
+    padding: 10px 10px;
     border-radius: 8px;
     line-height: 1.1;
     border: 1px solid #ccc;
-    background: #f5f5f7;
+    background:  #fff;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
@@ -112,8 +112,9 @@ kbd {
 /* ICON FIX */
 .tab-btn img,
 .tab-btn svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
+    padding: 0 5px 0;
 }
 
 .lang-btn img {
@@ -121,10 +122,38 @@ kbd {
     height: 16px;
 }
 
+/* Globale Active‑Farbe */
 .tab-btn.active {
-    background: #0078ff;
+    background: #e0e0e0; /* neutral, wird gleich überschrieben */
+    color: #000;
+    border-color: #ccc;
+}
+/* Excel‑Button (grün) */
+.excel-tab.active {
+    background: var(--excel-color);
+    border-color: var(--excel-color);
     color: white;
-    border-color: #005fcc;
+}
+
+/* Word‑Button (blau) */
+.word-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
+}
+
+/* PP‑Button) */
+.pp-tab.active {
+    background: var(--pp-color);
+    border-color: var(--pp-color);
+    color: white;
+}
+
+/* science-Button) */
+.science-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
 }
 
 /* Tab Content */
