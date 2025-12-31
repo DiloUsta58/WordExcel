@@ -2,7 +2,7 @@
 :root {
     --Isim_Anlam_Ayet:#c9a44d;
     --excel-color: #217346;
-    --word-color: #2b579a;
+    --word-color: #116cf5;
     --pp-color: #b7472a;
 }
 /* Allgemein */
@@ -54,18 +54,6 @@ kbd {
     font-size: 0.95em;
 }
 
-/* table.collapsible tbody {
-    max-height: 1000px;
-    overflow: hidden;
-    transition: max-height .3s ease;
-}
-
-table.collapsible.collapsed tbody {
-    max-height: 0;
-} */
-
-
-
 /* Excel – Grün */
 table.excel caption {
     color: #0a7d00;
@@ -80,7 +68,7 @@ table.excel td {
 
 /* Word – Blau */
 table.word caption {
-    color: #0057c8;
+    color: var(--word-color);
 }
 table.word th {
     background: #d7e7ff;
@@ -92,7 +80,7 @@ table.word td {
 
 /* Word – Expert */
 table.expert caption {
-    color: #0057c8;
+    color: var(--word-color);
 }
 table.expert th {
     background: #d7e7ff;
@@ -104,7 +92,7 @@ table.expert td {
 
 /* Word – Scince */
 table.science caption {
-    color: #0057c8;
+    color: var(--word-color);
 }
 table.science th {
     background: #d7e7ff;
@@ -188,25 +176,28 @@ table.excel {
     --theme-text: #1b5e20;
 }
 
-/* Word (blau) */
+/* Word - BASIC */
 table.word {
+    /* TD TITEL*/
     /*--theme-bg: #1565c0;
     --theme-bg-dark: #0d47a1; */
     --theme-text: #1565c0;
 }
 
-/* Expert (orange) */
+/* Word - Expert */
 table.expert {
+    /* TD TITEL*/
     /*--theme-bg: #1565c0;
     --theme-bg-dark: #0d47a1;*/
-    --theme-text: #0d47a1;
+    --theme-text: #1565c0;
 }
 
-/* Wissenschaft (orange) */
+/* Word - Wissenschaft */
 table.science {
+    /* TD TITEL*/ 
     /*--theme-bg: #1565c0;
     --theme-bg-dark: #0d47a1;*/
-    --theme-text: #0d47a1;
+    --theme-text: #1565c0;
 }
 
 table.collapsible > caption {
