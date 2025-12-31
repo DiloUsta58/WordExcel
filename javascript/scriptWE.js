@@ -267,21 +267,3 @@ document.addEventListener("click", (e) => {
     }
 });
 
-    const el = document.getElementById("lastUpdate");
-  if (el) {
-    // Hole das letzte Änderungsdatum der Seite
-    const lastModified = document.lastModified;
-
-/* =========================
-   6) LAST UPDATE
-    ========================= */
-
-    // Optional: formatiere Datum/Zeit für Türkisch
-    const formatted = new Date(lastModified).toLocaleString("tr-TR", {
-      dateStyle: "short",
-      timeStyle: "short"
-    });
-
-    // Setze den Text in das div
-    el.textContent = "Güncelleme: " + formatted;
-  }

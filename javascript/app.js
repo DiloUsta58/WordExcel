@@ -4,7 +4,7 @@ async function setLanguage(lang) {
         const response = await fetch(`lang/${lang}.json`);
         const translations = await response.json();
 
-        // Normale Texte ersetzen
+        // Texte ersetzen
         document.querySelectorAll("[data-i18n]").forEach(el => {
             const key = el.getAttribute("data-i18n");
             if (translations[key]) {
@@ -20,19 +20,42 @@ async function setLanguage(lang) {
             }
         });
 
-        // Aktive Sprache speichern
+        // Sprache speichern
         localStorage.setItem("lang", lang);
-
-        // HTML lang-Attribut setzen
         document.documentElement.setAttribute("lang", lang);
 
         // Aktiven Button markieren
         updateActiveLanguage(lang);
 
+        // ⬇⬇⬇ HIER LastUpdate einbauen ⬇⬇⬇
+        updateLastUpdate(lang, translations);
+
     } catch (error) {
         console.error("Fehler beim Laden der Sprache:", error);
     }
 }
+
+function updateLastUpdate(lang, translations) {
+    const el = document.getElementById("lastUpdate");
+    if (!el) return;
+
+    const lastModified = document.lastModified;
+
+    // Sprache → Locale
+    const locale = lang === "tr" ? "tr-TR" : "de-DE";
+
+    const formatted = new Date(lastModified).toLocaleString(locale, {
+        dateStyle: "short",
+        timeStyle: "short"
+    });
+
+    // Label aus JSON holen
+    const labelKey = el.getAttribute("data-i18n");
+    const label = translations[labelKey] || "";
+
+    el.textContent = `${label} ${formatted}`;
+}
+
 
 // Aktiven Sprachbutton hervorheben
 function updateActiveLanguage(lang) {
@@ -50,3 +73,5 @@ window.addEventListener("DOMContentLoaded", () => {
     setLanguage(langToUse);
     updateActiveLanguage(langToUse);
 });
+
+
