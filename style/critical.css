@@ -1,5 +1,5 @@
 /* ============================================================
-   CRITICAL.CSS — Apple Card Style (Light + Dark)
+   CRITICAL.CSS — 100% Layout (keine Effekte)
    ============================================================ */
 
 /* Schrift */
@@ -14,9 +14,16 @@ body {
    ------------------------------------------------------------ */
 
 :root {
-    --excel-color: #217346;
-    --word-color: #116cf5;
-    --pp-color: #b7472a;
+    /* Deine bestehenden Farben */
+    --excel-color: #1b5e20;
+    --word-color: #1565c0;
+    --pp-color: #d24726;
+
+    /* Globale Theme-Variablen (werden überschrieben) */
+    --theme-color: var(--excel-color);
+    --theme-soft: #e3f2fd;
+    --theme-border: var(--excel-color);
+    --theme-shadow: rgba(21,101,192,0.28);
 
     /* Light Mode */
     --light-bg: #f5f5f7;
@@ -33,41 +40,38 @@ body {
     --dark-hover: #48484a;
     --dark-text: #e6e6e6;
     --dark-border: rgba(255,255,255,0.12);
-
-    /* Collapsible Theme Vars 
-    --theme-bg: #e8f0ff;
-    --theme-bg-dark: #2c2c2e;*/
 }
-/* ------------------------------------------------------------
-   LIGHT MODE
-   ------------------------------------------------------------ */
 
+/* NAVBAR THEME COLORS */
+.navbar.excel   { --theme-border: #217346; } /* Grün */
+.navbar.word    { --theme-border: #1565c0; } /* Blau */
+.navbar.science { --theme-border: #b7472a; } /* Orange */
+
+
+/* Theme-Klassen */
+.word-theme { border-color: var(--word-color); color: var(--word-color); }
+.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
+.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
+
+
+/* ------------------------------------------------------------
+   LIGHT MODE BASE
+   ------------------------------------------------------------ */
 body {
     background: var(--light-bg);
     color: var(--light-text);
     line-height: 1.5;
     padding: 0 5px;
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode Basis */
-body.dark {
-    background: #1a1a1a;
-    color: #e6e6e6;
-}
+/* ------------------------------------------------------------
+   DARK MODE BASE COLORS
+   ------------------------------------------------------------ */
 
-body.dark table {
-    border-color: #555;
-}
-
-body.dark th {
-    background: #333 !important;
-    color: #fff;
-}
-
-body.dark td {
-    border-color: #5f5d5d;
-}
+body.dark {background: var(--dark-bg); color: var(--dark-text);}
+body.dark table {border-color: #555;}
+body.dark th {background: #333 !important; color: #fff;}
+body.dark td {border-color: #5f5d5d;}
 
 body.dark kbd {
     background: #2c2c2e;
@@ -75,36 +79,167 @@ body.dark kbd {
     border: 1px solid #444;
 }
 
-/* ------------------------------------------------------------
-   NAVBAR (Apple Glass Surface)
-   ------------------------------------------------------------ */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: rgba(255,255,255,0.65);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--light-border);
-    padding: 10px 0;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
+h2 {
+    color: var(--theme-color);
 }
 
+/* ------------------------------------------------------------
+   NAVBAR (Layout only)
+   ------------------------------------------------------------ */
+.navbar {
+    flex-direction: column;
+    top: 0;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    /* dein Layout bleibt */
+    border-top: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+
+    /* Theme-Border */
+    border-left: 4px solid var(--theme-border);
+
+    font-family: "Segoe UI", sans-serif;
+    flex-wrap: wrap;
+    z-index: 999;
+}
+
+
+
+/* Light Mode Theme Border */
+.navbar.excel,
+.navbar.word,
+.navbar.science {
+    border-left: 4px solid var(--theme-border);
+}
+
+/* Dark Mode Theme Border */
+body.dark .navbar.excel,
+body.dark .navbar.word,
+body.dark .navbar.science {
+    border-left: 4px solid color-mix(in srgb, var(--theme-border) 70%, white);
+}
 
 body.dark .navbar {
     background: rgba(30,30,30,0.45);
     border-bottom: 0.5px solid var(--dark-border);
 }
 
-caption {
+/* GRID: 2 Spalten */
+.navbar-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    width: 100%;
+    align-items: start;
+}
+
+/* SPALTE 1 – Links */
+.nav-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sprachen nebeneinander */
+.lang-row {
+    display: flex;
+    gap: 8px;
+}
+
+/* SPALTE 2 – Tabs */
+.nav-col-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Suchleiste volle Breite */
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* ------------------------------------------------------------
+   CAPTION ALIGNMENT
+   ------------------------------------------------------------ */
+
+caption,
+table.collapsible > caption,
+table:not(.collapsible) > caption {
     text-align: left !important;
 }
 
+/* ------------------------------------------------------------
+   TABLE BASE STRUCTURE
+   ------------------------------------------------------------ */
+/* Tabellen Theme Variablen */
+table.excel { --theme-text: #15c015; --theme-border: #15c015; }
+table.word { --theme-text: #1565c0;--theme-border: #1565c0; }
+table.expert { --theme-text: #1565c0; --theme-border: #1565c0; }
+table.science { --theme-text: #1565c0;--theme-border: #1565c0; }
+
+
+
+/* Caption Theme Backgrounds */
 table.collapsible > caption {
-    text-align: left !important;
+    background: var(--theme-bg);
+    color: var(--theme-text);
+    border-left: 4px solid var(--theme-border);
+}
+
+body.dark table.collapsible > caption {
+    background: var(--theme-bg-dark);
+    border-left: 4px solid color-mix(in srgb, var(--theme-border) 70%, white);
+}
+
+/* Caption Icon Filter (Layout) */
+body:not(.dark) table caption::before {
+    filter: brightness(0.95);
+}
+
+body.dark table caption::before {
+    filter: brightness(1.25) contrast(1.1);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+
+th, td {
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 4px;
 }
 
 table:not(.collapsible) > caption {
@@ -115,47 +250,101 @@ table.collapsible > caption {
     text-align: left !important;
 }
 
-/* Tabellen-Grundlayout */
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin: 18px 0;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 18px 0 28px;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: left;
-    vertical-align: top;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
 caption {
     text-align: left;
     font-weight: bold;
     margin-bottom: 4px;
 }
 
-/* kbd */
+
+/* Kategorie-Überschrift */
+.category-title {
+    margin-top: 25px;
+    padding: 8px;
+    border-left: 4px solid #ccc;
+    font-size: 1.1rem;
+}
+
+    th, td {
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        padding: 10px 12px;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 35%; }
+    th:nth-child(2), td:nth-child(2) { width: 65%; }
+
+    caption { font-size: clamp(16px, 4vw, 22px); }
+
+    table caption::before {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+    }
+
+
+th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+/* ------------------------------------------------------------
+   Copy‑Button Grundlayout
+   ------------------------------------------------------------ */
+
+/* Copy Button Layout */
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%); /* Layout-transform */
+    background: #444;
+    color: white;
+    border: none;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0; /* Effekt kommt in LAZY */
+}
+
+body.dark .copy-btn {
+    background: #666;
+}
+
+/* Dark Mode Table Row Layout */
+body.dark table tbody tr {
+    background: transparent;
+}
+
+/* ------------------------------------------------------------
+   KBD BASE
+   ------------------------------------------------------------ */
+
 kbd {
     background: #eee;
     padding: 2px 4px;
     border-radius: 4px;
     border: 1px solid #bbb;
-    font-family: "Segoe UI", monospace;
+    font-family: "Segoe UI", sans-serif;
     font-size: 0.95em;
 }
 
-/* Tabs */
+/* ------------------------------------------------------------
+   TABS (Layout only)
+   ------------------------------------------------------------ */
+
+   caption {
+    text-align: left !important;
+}
+
 .tabs {
     display: flex;
     gap: 10px;
@@ -163,49 +352,735 @@ kbd {
     flex-wrap: wrap;
 }
 
-/* Apple‑Style kompakte Buttons */
+/* Base button shape (no effects) */
 .tab-btn,
 .pdf-btn,
-.dark-toggle,
-.lang-btn {
-    font-size: 20px;
-    padding: 10px 10px;
+.dark-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
     border-radius: 8px;
-    line-height: 1.1;
-    border: 1px solid #ccc;
-    background:  #fff;
+    padding: 8px 14px;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
 }
 
-/* ------------------------------------------------------------
-   LANGUAGE BUTTON SMOOTH EFFECTS
-   ------------------------------------------------------------ */
-
-.lang-btn {
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+.pdf-btn img {
+    width: 18px;
+    height: 18px;
 }
-
-.lang-btn:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0.5px 1px rgba(0,0,0,0.06),
-        0 2px 4px rgba(0,0,0,0.10),
-        0 8px 20px rgba(0,0,0,0.12);
-}
-
-.lang-btn.active {
-    transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-
 
 
 /* ICON FIX */
+.tab-btn img,
+.tab-btn svg {
+    width: 16px;
+    height: 16px;
+
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+.lang-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+/* ------------------------------------------------------------
+   ACTIVE TAB COLORS (Layout only)
+   ------------------------------------------------------------ */
+
+.tab-btn:hover {
+    background: var(--theme-soft);
+    border-color: var(--theme-border);
+    color: var(--theme-color);
+}
+
+
+/* ------------------------------------------------------------
+   TAB CONTENT (Layout only)
+   ------------------------------------------------------------ */
+
+.tab-content {
+    display: none;
+    opacity: 1; /* no fade here */
+    transform: none; /* no movement */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.card {
+    border-left: 4px solid var(--theme-border);
+}
+
+.icon {
+    color: var(--theme-color);
+}
+
+/* ------------------------------------------------------------
+   SEARCH FIELD (Layout only)
+   ------------------------------------------------------------ */
+
+.search-field {
+    flex: 1;
+    width: 100%;
+    max-width: 260px;
+    min-width: 160px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--light-card);
+    color: var(--light-text);
+    border: 0.5px solid var(--light-border);
+}
+
+.search-field-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* Dark Mode Search Field (Layout only) */
+body.dark .search-field {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE TABLE HOVER (Layout only — no hover effects)
+   ------------------------------------------------------------ */
+
+body.dark table tbody tr {
+    background: transparent; /* hover removed */
+}
+
+/* ------------------------------------------------------------
+   TABLE CAPTION BASE (no effects)
+   ------------------------------------------------------------ */
+
+
+
+table caption::before {
+    width: 18px;
+    height: 18px;
+}
+
+table.collapsible > caption {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
+    user-select: none;
+    position: relative;
+}
+
+/* ------------------------------------------------------------
+   COLLAPSIBLE TABLE STRUCTURE (Layout only)
+   ------------------------------------------------------------ */
+
+.collapsible tbody {
+    overflow: hidden;
+    max-height: 1000px; /* no animation */
+}
+
+.collapsible.closed tbody {
+    max-height: 0;
+}
+
+table.collapsible.collapsed thead,
+table.collapsible.collapsed tbody {
+    display: none;
+}
+
+/* Theme variables (layout only) */
+table.excel { --theme-text: #1b5e20; }
+table.word { --theme-text: #1565c0; }
+table.expert { --theme-text: #1565c0; }
+table.science { --theme-text: #1565c0; }
+
+table.collapsible > caption {
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+body.dark table.collapsible > caption {
+    background: var(--theme-bg-dark);
+}
+
+table.collapsible > caption::after {
+    content: "▾";
+    position: absolute;
+    right: 12px;
+}
+
+/* ------------------------------------------------------------
+   ICONS IN CAPTION (Layout only)
+   ------------------------------------------------------------ */
+
+table.excel > caption::before,
+table.word > caption::before,
+table.expert > caption::before,
+table.science > caption::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+table.excel > caption::before {
+    background-image: url('https://img.icons8.com/color/48/microsoft-excel-2019.png');
+}
+
+table.word > caption::before {
+    background-image: url('https://img.icons8.com/color/48/microsoft-word-2019.png');
+}
+
+table.expert > caption::before {
+    background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png');
+}
+
+table.science > caption::before {
+    background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png');
+}
+
+/* Light Mode Icons */
+body:not(.dark) table caption::before {
+    filter: brightness(0.95);
+}
+
+/* Dark Mode Icons */
+body.dark table caption::before {
+    filter: brightness(1.25) contrast(1.1);
+}
+
+/* ------------------------------------------------------------
+   TEXT / NOTES (Layout only)
+   ------------------------------------------------------------ */
+
+table td:last-child {
+    white-space: normal;
+    word-break: break-word;
+    text-align: left;
+}
+
+p.note {
+    margin: -12px 0 18px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* ------------------------------------------------------------
+   PDF BUTTON (Layout only)
+   ------------------------------------------------------------ */
+
+.pdf-btn {
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    margin-top: -2px;
+}
+
+/* ------------------------------------------------------------
+   LANGUAGE SWITCHER (Layout only)
+   ------------------------------------------------------------ */
+
+.lang-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-weight: 500;
+    color: #333;
+}
+
+.lang-btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.lang-btn {
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 4px 6px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------
+   DARK MODE TOGGLE (Layout only)
+   ------------------------------------------------------------ */
+
+.dark-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f3f3f3;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+body.dark .dark-toggle {
+    background: #2c2c2e;
+    color: #f2f2f7;
+    border-color: #3a3a3c;
+}
+
+
+/* ------------------------------------------------------------
+   SEARCH RESET + COUNT (Layout only)
+   ------------------------------------------------------------ */
+
+.search-reset {
+    padding: 4px 10px;
+    border: none;
+    background: #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.search-count {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+body.dark .search-reset {
+    background: #444;
+    color: #eee;
+}
+
+body.dark .search-count {
+    color: #bbb;
+}
+
+/* ------------------------------------------------------------
+   COPY BUTTON (Layout only)
+   ------------------------------------------------------------ */
+
+.shortcut-cell {
+    position: relative;
+    padding-right: 40px;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%); /* transform is layout here */
+    background: #444;
+    color: white;
+    border: none;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0; /* no fade */
+}
+
+tbody tr .copy-btn {
+    opacity: 0; /* hover removed */
+}
+
+body.dark .copy-btn {
+    background: #033a6d;
+}
+
+tbody tr:hover {
+    background: #f9f9f9;
+
+}
+
+body.dark tbody tr:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+table td:first-child {
+    width: 40%;
+}
+
+/* ------------------------------------------------------------
+   PRINT MODE (Layout only)
+   ------------------------------------------------------------ */
+
+@media print {
+
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .navbar,
+    .tab-buttons,
+    .dark-toggle,
+    .pdf-btn,
+    #searchContainer {
+        display: none !important;
+    }
+
+    table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+
+    #printHeader {
+        display: flex !important;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 2px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    #printHeader img {
+        height: 50px;
+        width: auto;
+    }
+
+    body.dark {
+        background: #1a1a1a !important;
+        color: #e6e6e6 !important;
+    }
+
+    body:not(.dark) {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    body.dark kbd {
+        background: #2a2a2a !important;
+        color: #fff !important;
+        border-color: #555 !important;
+    }
+
+    body:not(.dark) kbd {
+        background: #eee !important;
+        color: #000 !important;
+        border-color: #bbb !important;
+    }
+}
+/* Print Header Layout */
+/* PRINT WATERMARK */
+#printHeader {
+    display: none;
+}
+
+@media print {
+    #printHeader {
+        display: flex !important;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 2px solid #ccc;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media print {
+    body::after {
+        content: "DiloUsta58";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 80px;
+        font-weight: bold;
+        color: rgba(150, 150, 150, 0.15);
+        pointer-events: none;
+        z-index: 9999;
+        white-space: nowrap;
+    }
+}
+
+/* ------------------------------------------------------------
+   MOBILE (Layout only)
+   ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        overflow: hidden;
+        font-size: clamp(13px, 2.5vw, 16px);
+    }
+
+    th, td {
+        white-space: normal !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        padding: 10px 12px;
+    }
+
+    th:nth-child(1), td:nth-child(1) { width: 35%; }
+    th:nth-child(2), td:nth-child(2) { width: 65%; }
+
+    caption { font-size: clamp(16px, 4vw, 22px); }
+
+    table caption::before {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+    }
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 11.5px;
+        padding: 5px 9px;
+    }
+
+    .lang-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .lang-btn img {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* ============================================================
+   TABLET (Layout only)
+   ============================================================ */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 12.5px;
+        padding: 6px 11px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    table caption::before {
+        width: 16px;
+        height: 16px;
+    }
+
+    #pdfExportBtn {
+        float: right;
+    }
+}
+
+/* ============================================================
+   DESKTOP (Layout only)
+   ============================================================ */
+
+@media (min-width: 1025px) {
+
+    .tab-btn,
+    .pdf-btn,
+    .dark-toggle,
+    .lang-btn {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+
+    table {
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 10px 14px;
+        width: 50%;
+    }
+
+    table caption::before {
+        width: 16px;
+        height: 16px;
+    }
+
+    #pdfExportBtn {
+        float: right;
+    }
+}
+
+/* ============================================================
+   APPLE CARD TABLE BASE (Layout only)
+   ============================================================ */
+
+.table-container {
+    display: none;
+    width: 100%;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 28px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    background: var(--light-card);
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.7)
+    );
+
+    border: 0.5px solid var(--light-border);
+}
+
+body.dark table {
+    background: var(--dark-card);
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.02)
+    );
+
+    border: 0.5px solid var(--dark-border);
+}
+/* Tabellen‑Zebra‑Layout (Light Mode) */ 
+tbody tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+/* Tabellen‑Zebra‑Layout (Dark Mode) */
+body.dark tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.04);
+}
+
+/* Tabellen‑Caption‑Spacing */
+table caption {
+    padding: 12px 14px;
+}
+/* Tabellen‑Caption‑Font‑Layout */
+table caption {
+    font-size: 1.05rem;
+    font-weight: 600;
+    /*Tabellen‑Caption‑Border‑Layout*/
+    border-bottom: 0.6px solid var(--theme-border)
+}
+
+
+th, td {
+    padding: 6px 10px;
+    border: 1px solid var(--theme-border);
+    vertical-align: top;
+    line-height: 1.4;
+    text-align: left; 
+    font-size: 12px;   
+
+}
+
+/* Tabellen Überschrift Beschreibung - Shotcut*/
+th {
+    text-align: left; 
+    font-size: 14px;   
+    background: var(--light-soft);
+}
+
+body.dark th {
+    background: var(--dark-border);
+    color: #fff;
+}
+
+body.dark td {
+    border-color: var(--dark-border);
+}
+
+/* ============================================================
+   TABS (Layout only)
+   ============================================================ */
+
+.Tab-switch {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn,
+.pdf-btn,
+.dark-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab-btn img {
+    width: 16px;
+    height: 16px;
+    padding: 0 5px 0;
+}
+
+/* Farbige Tabs (Layout only) */
+.excel-tab.active {
+    background: var(--excel-color);
+    border-color: var(--excel-color);
+    color: white;
+}
+
+.word-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
+}
+
+.pp-tab.active {
+    background: var(--pp-color);
+    border-color: var(--pp-color);
+    color: white;
+}
+
+.science-tab.active {
+    background: var(--word-color);
+    border-color: var(--word-color);
+    color: white;
+}
+
+/* Icons in Tabs */
 .tab-btn img,
 .tab-btn svg {
     width: 16px;
@@ -218,117 +1093,21 @@ kbd {
     height: 16px;
 }
 
-/* Globale Active‑Farbe */
-.tab-btn.active {
-    background: #e0e0e0; /* neutral, wird gleich überschrieben */
-    color: #000;
-    border-color: #ccc;
-}
-/* Excel‑Button (grün) */
-.excel-tab.active {
-    background: var(--excel-color);
-    border-color: var(--excel-color);
-    color: white;
-}
+/* ============================================================
+   SEARCH FIELD (Layout only)
+   ============================================================ */
 
-/* Word‑Button (blau) */
-.word-tab.active {
-    background: var(--word-color);
-    border-color: var(--word-color);
-    color: white;
-}
-
-/* PP‑Button) */
-.pp-tab.active {
-    background: var(--pp-color);
-    border-color: var(--pp-color);
-    color: white;
-}
-
-/* science-Button) */
-.science-tab.active {
-    background: var(--word-color);
-    border-color: var(--word-color);
-    color: white;
-}
-
-/* Tab Content */
-.tab-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.tab-content.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Search */
 .search-field {
+    flex: 1;
+    width: 100%;
+    max-width: 260px;
+    min-width: 160px;
     padding: 6px 12px;
-    border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 0.9rem;
-    width: 200px;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    background: var(--light-card);
+    color: var(--light-text);
+    border: 0.5px solid var(--light-border);
 }
-
-.search-field:focus {
-    outline: none;
-    border-color: #0078ff;
-}
-
-/* ------------------------------------------------------------
-   DARK MODE SMOOTH TRANSITIONS
-   ------------------------------------------------------------ */
-
-body.dark,
-body.dark table,
-body.dark th,
-body.dark td,
-body.dark .tab-btn,
-body.dark .pdf-btn,
-body.dark .dark-toggle,
-body.dark .lang-btn,
-body.dark .search-field {
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-/* ------------------------------------------------------------
-   DARK MODE BUTTON EFFECTS
-   ------------------------------------------------------------ */
-
-body.dark .tab-btn,
-body.dark .pdf-btn,
-body.dark .dark-toggle,
-body.dark .lang-btn {
-    background: var(--dark-soft);
-    border-color: var(--dark-border);
-    color: var(--dark-text);
-}
-
-body.dark .tab-btn:hover,
-body.dark .pdf-btn:hover,
-body.dark .dark-toggle:hover,
-body.dark .lang-btn:hover {
-    background: var(--dark-hover);
-    transform: translateY(-2px);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.40),
-        0 2px 6px rgba(0,0,0,0.55),
-        0 4px 12px rgba(0,0,0,0.65);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE SEARCH FIELD
-   ------------------------------------------------------------ */
 
 body.dark .search-field {
     background: var(--dark-card);
@@ -336,494 +1115,11 @@ body.dark .search-field {
     color: var(--dark-text);
 }
 
-body.dark .search-field:focus {
-    box-shadow:
-        0 0 0 3px rgba(0,122,255,0.25),
-        0 0 12px rgba(0,122,255,0.35);
+#Kimlik,
+#lastUpdate {
+  color: var(--theme-border);
 }
 
-/* ------------------------------------------------------------
-   DARK MODE TABLE HOVER
-   ------------------------------------------------------------ */
-
-body.dark table tbody tr:hover {
-    background: rgba(255,255,255,0.06);
-}
-
-/* ------------------------------------------------------------
-   TABLE CAPTION SMOOTH SHADOW (Apple subtle)
-   ------------------------------------------------------------ */
-
-
-   table.collapsible > caption {
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
-
-table.collapsible > caption:hover {
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.08),
-        0 3px 6px rgba(0,0,0,0.12);
-    transform: translateY(-1px);
-}
-
-/* ------------------------------------------------------------
-   TABLE ROW SOFT SCALE (optional Apple effect)
-   ------------------------------------------------------------ */
-
-.soft-row:hover {
-    transform: scale(1.01);
-}
-
-/* ------------------------------------------------------------
-   ICON HOVER GLOW (Apple style)
-   ------------------------------------------------------------ */
-
-.icon-glow:hover {
-    filter: drop-shadow(0 0 4px rgba(0,122,255,0.45));
-}
-
-/* ------------------------------------------------------------
-   PDF BUTTON SMOOTH EFFECTS
-   ------------------------------------------------------------ */
-
-.pdf-btn {
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.pdf-btn:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0.5px 1px rgba(0,0,0,0.06),
-        0 2px 4px rgba(0,0,0,0.10),
-        0 8px 20px rgba(0,0,0,0.12);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE PDF BUTTON
-   ------------------------------------------------------------ */
-
-body.dark .pdf-btn {
-    background: var(--dark-soft);
-    border-color: var(--dark-border);
-    color: var(--dark-text);
-}
-
-body.dark .pdf-btn:hover {
-    background: var(--dark-hover);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.40),
-        0 2px 6px rgba(0,0,0,0.55),
-        0 4px 12px rgba(0,0,0,0.65);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE CAPTION EFFECTS
-   ------------------------------------------------------------ */
-
-body.dark table.collapsible > caption {
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease;
-}
-
-body.dark table.collapsible > caption:hover {
-    background: var(--dark-hover);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.40),
-        0 2px 6px rgba(0,0,0,0.55),
-        0 4px 12px rgba(0,0,0,0.65);
-    transform: translateY(-1px);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE ICON GLOW
-   ------------------------------------------------------------ */
-
-body.dark .icon-glow:hover {
-    filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
-}
-
-/* ------------------------------------------------------------
-   TABLE SOFT SHADOW ON HOVER (Apple subtle)
-   ------------------------------------------------------------ */
-
-.table-hover:hover {
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.08),
-        0 3px 6px rgba(0,0,0,0.12),
-        0 6px 14px rgba(0,0,0,0.14);
-    transform: translateY(-1px);
-}
-
-body.dark .table-hover:hover {
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.40),
-        0 3px 6px rgba(0,0,0,0.55),
-        0 6px 14px rgba(0,0,0,0.65);
-}
-
-
-
-/* ------------------------------------------------------------
-   SMOOTH PRINT TRANSITIONS (non-critical)
-   ------------------------------------------------------------ */
-
-@media print {
-    table,
-    th,
-    td {
-        transition: none !important;
-    }
-}
-/* ------------------------------------------------------------
-   SMOOTH TAB SWITCHING (Opacity Fade)
-   ------------------------------------------------------------ */
-
-.tab-content {
-    opacity: 1;
-    transition: opacity 0.35s ease;
-}
-
-.tab-content.hidden {
-    opacity: 0;
-}
-
-/* ------------------------------------------------------------
-   SMOOTH SCROLLING (Apple-like)
-   ------------------------------------------------------------ */
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* ------------------------------------------------------------
-   BUTTON ACTIVE PRESS EFFECT
-   ------------------------------------------------------------ */
-
-.btn-press:active,
-.tab-btn:active,
-.pdf-btn:active,
-.lang-btn:active,
-.dark-toggle:active {
-    transform: scale(0.97);
-    transition: transform 0.1s ease;
-}
-
-/* ------------------------------------------------------------
-   TABLE CAPTION ACTIVE PRESS
-   ------------------------------------------------------------ */
-
-table.collapsible > caption:active {
-    transform: scale(0.98);
-}
-
-/* ------------------------------------------------------------
-   SEARCH HIGHLIGHT FADE-IN
-   ------------------------------------------------------------ */
-
-mark.search-highlight {
-    animation: highlightFade 0.6s ease;
-}
-
-@keyframes highlightFade {
-    from { background: #005fcc; }
-    to   { background: #007aff; }
-}
-
-/* ------------------------------------------------------------
-   COPY BUTTON CLICK FEEDBACK
-   ------------------------------------------------------------ */
-
-.copy-btn:active {
-    transform: translateY(-50%) scale(0.92);
-    opacity: 1;
-}
-/* ------------------------------------------------------------
-   SMOOTH LANGUAGE SWITCHER TRANSITIONS
-   ------------------------------------------------------------ */
-
-.lang-switch {
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.lang-switch.fade-in {
-    opacity: 0;
-    transform: translateY(4px);
-    animation: langFade 0.35s ease forwards;
-}
-
-@keyframes langFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ------------------------------------------------------------
-   SMOOTH TAB BUTTON ICON TRANSITIONS
-   ------------------------------------------------------------ */
-
-.tab-btn img,
-.tab-btn svg {
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-.tab-btn:hover img,
-.tab-btn:hover svg {
-    transform: scale(1.08);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE ICON TRANSITIONS
-   ------------------------------------------------------------ */
-
-body.dark table caption::before {
-    transition: filter 0.25s ease;
-}
-
-body.dark table caption:hover::before {
-    filter: brightness(1.35) contrast(1.15);
-}
-
-/* ------------------------------------------------------------
-   TABLE BORDER SOFT TRANSITION
-   ------------------------------------------------------------ */
-
-table,
-th,
-td {
-    transition: border-color 0.25s ease;
-}
-
-/* ------------------------------------------------------------
-   SEARCH RESET BUTTON SMOOTH EFFECT
-   ------------------------------------------------------------ */
-
-.search-reset {
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.search-reset:hover {
-    transform: translateY(-1px);
-}
-
-body.dark .search-reset:hover {
-    background: #555;
-}
-/* ------------------------------------------------------------
-   SMOOTH TABLE CONTAINER FADE-IN
-   ------------------------------------------------------------ */
-
-.table-container {
-    opacity: 0;
-    animation: tableFade 0.45s ease forwards;
-}
-
-@keyframes tableFade {
-    to {
-        opacity: 1;
-    }
-}
-
-/* ------------------------------------------------------------
-   SMOOTH CATEGORY TITLE APPEAR
-   ------------------------------------------------------------ */
-
-.category-title {
-    opacity: 0;
-    transform: translateY(4px);
-    animation: categoryFade 0.4s ease forwards;
-}
-
-@keyframes categoryFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ------------------------------------------------------------
-   SMOOTH SCROLL TO TOP (if used)
-   ------------------------------------------------------------ */
-
-.scroll-top {
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.scroll-top.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.scroll-top.hide {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-/* ------------------------------------------------------------
-   OPTIONAL: BUTTON GLOW ON ACTIVE TAB
-   ------------------------------------------------------------ */
-
-.tab-btn.active.glow {
-    box-shadow:
-        0 0 0 3px rgba(0,122,255,0.15),
-        0 0 12px rgba(0,122,255,0.25);
-}
-/* ------------------------------------------------------------
-   OPTIONAL: SMOOTH APPEAR FOR NOTES
-   ------------------------------------------------------------ */
-
-p.note {
-    opacity: 0;
-    transform: translateY(4px);
-    animation: noteFade 0.35s ease forwards;
-}
-
-@keyframes noteFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ------------------------------------------------------------
-   SMOOTH BORDER RADIUS TRANSITIONS (Apple subtle)
-   ------------------------------------------------------------ */
-
-table,
-.tab-btn,
-.pdf-btn,
-.lang-btn,
-.dark-toggle,
-.search-field {
-    transition: border-radius 0.25s ease;
-}
-
-.rounded:hover {
-    border-radius: 12px;
-}
-
-/* ------------------------------------------------------------
-   SMOOTH ICON ROTATION (Collapsible Arrow)
-   ------------------------------------------------------------ */
-
-table.collapsible > caption::after {
-    transition: transform 0.25s ease;
-}
-
-table.collapsible.collapsed > caption::after {
-    transform: rotate(-90deg);
-}
-
-/* ------------------------------------------------------------
-   SMOOTH TABLE WIDTH ADJUSTMENTS (non-critical)
-   ------------------------------------------------------------ */
-
-table {
-    transition: width 0.25s ease;
-}
-/* ------------------------------------------------------------
-   SMOOTH FLAG ICON TRANSITIONS
-   ------------------------------------------------------------ */
-
-.lang-btn img {
-    transition: transform 0.25s ease, filter 0.25s ease;
-}
-
-.lang-btn:hover img {
-    transform: scale(1.12);
-}
-
-/* ------------------------------------------------------------
-   DARK MODE FLAG ICONS
-   ------------------------------------------------------------ */
-
-body.dark .lang-btn img {
-    filter: brightness(0.85);
-}
-
-body.dark .lang-btn:hover img {
-    filter: brightness(1.05);
-}
-
-/* ------------------------------------------------------------
-   SMOOTH NAVBAR APPEAR (optional)
-   ------------------------------------------------------------ */
-
-.navbar {
-    opacity: 0;
-    animation: navbarFade 0.45s ease forwards;
-}
-
-@keyframes navbarFade {
-    to {
-        opacity: 1;
-    }
-}
-
-/* ------------------------------------------------------------
-   SMOOTH TAB BUTTON GROUP APPEAR
-   ------------------------------------------------------------ */
-
-.tab-buttons {
-    opacity: 0;
-    transform: translateY(6px);
-    animation: tabButtonsFade 0.45s ease forwards;
-}
-
-@keyframes tabButtonsFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ------------------------------------------------------------
-   FINAL: SMOOTH GLOBAL FADE-IN FOR ENTIRE APP
-   ------------------------------------------------------------ */
-
-body {
-    opacity: 0;
-    animation: bodyFade 0.55s ease forwards;
-}
-
-@keyframes bodyFade {
-    to {
-        opacity: 1;
-    }
-}
-
-/* ------------------------------------------------------------
-   FINAL: SMOOTH TRANSITION FOR ALL CUSTOM PROPERTIES
-   ------------------------------------------------------------ */
-
-:root,
-body.dark {
-    transition:
-        --light-card 0.35s ease,
-        --light-soft 0.35s ease,
-        --light-hover 0.35s ease,
-        --light-border 0.35s ease,
-        --light-text 0.35s ease,
-        --dark-card 0.35s ease,
-        --dark-soft 0.35s ease,
-        --dark-hover 0.35s ease,
-        --dark-border 0.35s ease,
-        --dark-text 0.35s ease;
-}
-
-/* ------------------------------------------------------------
-   END OF LAZY.CSS
-   ------------------------------------------------------------ */
+/* ============================================================
+   END OF CRITICAL.CSS (100% Layout)
+   ============================================================ */

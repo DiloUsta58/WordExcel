@@ -1,566 +1,40 @@
-/* ------------------------------------------------------------
-   TABLE THEMES (Excel, Word, Expert, Science)
-   ------------------------------------------------------------ */
-
-table.excel caption { color: #0a7d00; }
-table.excel th { background: #d8f5d2; border-color: #8cd68a; }
-table.excel td { border-color: #8cd68a; }
-
-table.word caption { color: var(--word-color); }
-table.word th { background: #d7e7ff; border-color: #7fb0ff; }
-table.word td { border-color: #7fb0ff; }
-
-table.expert caption { color: var(--word-color); }
-table.expert th { background: #d7e7ff; border-color: #7fb0ff; }
-table.expert td { border-color: #7fb0ff; }
-
-table.science caption { color: var(--word-color); }
-table.science th { background: #d7e7ff; border-color: #7fb0ff; }
-table.science td { border-color: #7fb0ff; }
-
-/* Kategorie-Überschrift */
-.category-title {
-    margin-top: 25px;
-    padding: 8px;
-    border-left: 4px solid #ccc;
-    font-size: 1.1rem;
-}
-
-/* Theme-Klassen */
-.word-theme { border-color: var(--word-color); color: var(--word-color); }
-.excel-theme { border-color: var(--excel-color); color: var(--excel-color); }
-.pp-theme { border-color: var(--pp-color); color: var(--pp-color); }
-
-/* Einheitliche Spaltenbreite */
-table th, table td { box-sizing: border-box; }
-
-/* Einheitliche Spaltenbreite */
-table th, table td { box-sizing: border-box; }
-
-/* =========================================
-   COLLAPSIBLE TABLES
-   ========================================= */
+/* ============================================================
+   LAZY.CSS — 100% Effekte (Animation, Hover, Transitions)
+   ============================================================ */
 
 /* ------------------------------------------------------------
-   COLLAPSIBLE TABLES
+   GLOBAL TRANSITIONS (Dark Mode etc.)
    ------------------------------------------------------------ */
 
-.collapsible tbody {
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-    max-height: 1000px;
-}
-
-.collapsible.closed tbody { max-height: 0; }
-
-table.collapsible > caption {
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px;
-    background: var(--caption-bg, #2e7d32);
-    color: white;
-    border-radius: 6px 6px 0 0;
-    user-select: none;
-    position: relative;
-}
-
-table.collapsible > caption::after {
-    content: "▾";
-    position: absolute;
-    right: 12px;
-    transition: transform 0.2s ease;
-}
-
-table.collapsible.collapsed > caption::after {
-    transform: rotate(-90deg);
-}
-
-table.collapsible.collapsed thead,
-table.collapsible.collapsed tbody {
-    display: none;
-}
-
-/* Theme Variablen */
-table.excel { --theme-text: #1b5e20; }
-table.word { --theme-text: #1565c0; }
-table.expert { --theme-text: #1565c0; }
-table.science { --theme-text: #1565c0; }
-
-table.collapsible > caption { background: var(--theme-bg); color: var(--theme-text); }
-body.dark table.collapsible > caption { background: var(--theme-bg-dark); }
-table.collapsible > caption::after { color: var(--theme-text); }
-.shortcut-cell .copy-btn { background: var(--theme-bg); color: var(--theme-text); }
-body.dark .shortcut-cell .copy-btn { background: var(--theme-bg-dark); }
-
-/* ------------------------------------------------------------
-   ICONS IN CAPTION (Apple kompakt)
-   ------------------------------------------------------------ */
-
-table.excel > caption::before,
-table.word > caption::before,
-table.expert > caption::before,
-table.science > caption::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-}
-
-table.excel > caption::before { background-image: url('https://img.icons8.com/color/48/microsoft-excel-2019.png'); }
-table.word > caption::before { background-image: url('https://img.icons8.com/color/48/microsoft-word-2019.png'); }
-table.expert > caption::before { background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png'); }
-table.science > caption::before { background-image: url('https://img.icons8.com/fluency/48/microsoft-word-2019.png'); }
-
-/* Light Mode Icons */
-body:not(.dark) table caption::before { filter: brightness(0.95); }
-
-/* Dark Mode Icons */
-body.dark table caption::before { filter: brightness(1.25) contrast(1.1); }
-
-/* ------------------------------------------------------------
-   TEXT / NOTES
-   ------------------------------------------------------------ */
-
-table td:last-child {
-    white-space: normal;
-    word-break: break-word;
-    text-align: left;
-}
-
-p.note {
-    margin: -12px 0 18px;
-    font-size: 0.9em;
-    color: #555;
+body.dark,
+body.dark table,
+body.dark th,
+body.dark td,
+body.dark .tab-btn,
+body.dark .pdf-btn,
+body.dark .dark-toggle,
+body.dark .lang-btn,
+body.dark .search-field {
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 /* ------------------------------------------------------------
-   PDF BUTTON (Apple kompakt)
+   LANGUAGE BUTTON SMOOTH EFFECTS
    ------------------------------------------------------------ */
-
-.pdf-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid #ccc;
-    background: #f5f5f7;
-    cursor: pointer;
-    border-radius: 8px;
-    font-weight: 600;
-    padding: 4px 9px !important;
-    font-size: 11.5px !important;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.pdf-btn:hover { filter: brightness(1.05); }
-/* ------------------------------------------------------------
-   LANGUAGE SWITCHER (Apple kompakt)
-   ------------------------------------------------------------ */
-
-.lang-switch {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-left: 10px;
-}
 
 .lang-btn {
-    background: #f5f5f7;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 4px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.lang-btn img {
-    width: 16px;
-    height: 16px;
-    pointer-events: none;
-}
-
-.lang-btn:hover { filter: brightness(1.05); }
-
-.lang-btn.active {
-    border-color: #007aff;
-    background: #e8f0ff;
-}
-
-/* ------------------------------------------------------------
-   DARK MODE TOGGLE (Apple kompakt)
-   ------------------------------------------------------------ */
-
-.dark-toggle {
-    margin: 10px 0 20px;
-    background: #f5f5f7;
-    color: #333;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.dark-toggle:hover { filter: brightness(1.05); }
-
-body.dark .dark-toggle {
-    background: #2c2c2e;
-    color: #f2f2f7;
-    border-color: #3a3a3c;
-}
-
-/* ------------------------------------------------------------
-   SEARCH RESET + COUNT
-   ------------------------------------------------------------ */
-
-.search-reset {
-    padding: 4px 10px;
-    border: none;
-    background: #ddd;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    display: none;
-}
-
-.search-reset:hover { background: #ccc; }
-
-.search-count {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-body.dark .search-reset { background: #444; color: #eee; }
-body.dark .search-count { color: #bbb; }
-
-/* ------------------------------------------------------------
-   COPY BUTTON
-   ------------------------------------------------------------ */
-
-.shortcut-cell {
-    position: relative;
-    padding-right: 40px;
-}
-
-.copy-btn {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #444;
-    color: white;
-    border: none;
-    padding: 4px 6px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-tbody tr:hover .copy-btn { opacity: 1; }
-
-body.dark .copy-btn { background: #666; }
-
-/* ------------------------------------------------------------
-   PRINT MODE
-   ------------------------------------------------------------ */
-
-@media print {
-
-    body {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .navbar,
-    .tab-buttons,
-    .dark-toggle,
-    .pdf-btn,
-    #searchContainer {
-        display: none !important;
-    }
-
-    table {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        margin-bottom: 20px;
-    }
-
-    #printHeader {
-        display: flex !important;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        border-bottom: 2px solid #ccc;
-        margin-bottom: 20px;
-    }
-
-    #printHeader img {
-        height: 50px;
-        width: auto;
-    }
-
-    body.dark {
-        background: #1a1a1a !important;
-        color: #e6e6e6 !important;
-    }
-
-    body:not(.dark) {
-        background: #ffffff !important;
-        color: #000000 !important;
-    }
-
-    body.dark kbd {
-        background: #2a2a2a !important;
-        color: #fff !important;
-        border-color: #555 !important;
-    }
-
-    body:not(.dark) kbd {
-        background: #eee !important;
-        color: #000 !important;
-        border-color: #bbb !important;
-    }
-}
-
-/* PRINT WATERMARK */
-#printHeader { display: none; }
-
-@media print {
-    body::after {
-        content: "DiloUsta Edition";
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(-30deg);
-        font-size: 80px;
-        font-weight: bold;
-        color: rgba(150, 150, 150, 0.15);
-        pointer-events: none;
-        z-index: 9999;
-        white-space: nowrap;
-    }
-}
-/* ============================================================
-   MOBILE (Apple kompakt)
-   ============================================================ */
-
-@media (max-width: 600px) {
-
-    table {
-        width: 100%;
-        table-layout: fixed;
-        border-collapse: collapse;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        overflow: hidden;
-        font-size: clamp(13px, 2.5vw, 16px);
-    }
-
-    th, td {
-        white-space: normal !important;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        padding: 10px 12px;
-    }
-
-    th:nth-child(1), td:nth-child(1) { width: 35%; }
-    th:nth-child(2), td:nth-child(2) { width: 65%; }
-
-    caption { font-size: clamp(16px, 4vw, 22px); }
-
-    table caption::before {
-        width: 14px;
-        height: 14px;
-        margin-right: 6px;
-    }
-
-    .tab-btn,
-    .pdf-btn,
-    .dark-toggle,
-    .lang-btn {
-        font-size: 11.5px;
-        padding: 5px 9px;
-    }
-
-    .lang-btn {
-        width: 28px;
-        height: 28px;
-    }
-
-    .lang-btn img {
-        width: 14px;
-        height: 14px;
-    }
-}
-
-/* ============================================================
-   TABLET (Apple kompakt)
-   ============================================================ */
-
-@media (min-width: 601px) and (max-width: 1024px) {
-
-    .tab-btn,
-    .pdf-btn,
-    .dark-toggle,
-    .lang-btn {
-        font-size: 12.5px;
-        padding: 6px 11px;
-    }
-
-    table { font-size: 14px; }
-    th, td { padding: 8px 10px; }
-
-    table caption::before {
-        width: 16px;
-        height: 16px;
-    }
-
-    #pdfExportBtn { float: right; }
-}
-
-/* ============================================================
-   DESKTOP (Apple kompakt)
-   ============================================================ */
-
-@media (min-width: 1025px) {
-
-    .tab-btn,
-    .pdf-btn,
-    .dark-toggle,
-    .lang-btn {
-        font-size: 13px;
-        padding: 7px 12px;
-    }
-
-    table { font-size: 15px; }
-
-    th, td {
-        padding: 10px 14px;
-        width: 50%;
-    }
-
-    table caption::before {
-        width: 16px;
-        height: 16px;
-    }
-
-    #pdfExportBtn { float: right; }
-}
-
-/* ============================================================
-   APPLE CARD TABLE BASE (Grundstruktur)
-   ============================================================ */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin: 18px 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 18px 0 28px;
-    border-radius: 12px;
-    overflow: hidden;
-
-    /* Apple Card Light */
-    background: var(--light-card);
-    background-image: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.9),
-        rgba(255,255,255,0.7)
-    );
-
-    border: 0.5px solid var(--light-border);
-    box-shadow:
-        0 0.3px 0.5px rgba(0,0,0,0.04),
-        0 1px 2px rgba(0,0,0,0.06),
-        0 4px 12px rgba(0,0,0,0.08);
-}
-
-body.dark table {
-    background: var(--dark-card);
-    background-image: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.02)
-    );
-
-    border: 0.5px solid var(--dark-border);
-    box-shadow:
-        0 1px 2px rgba(0,0,0,0.40),
-        0 2px 6px rgba(0,0,0,0.55),
-        0 4px 12px rgba(0,0,0,0.65);
-}
-
-th, td {
-    padding: 6px 10px;
-    border: 0.5px solid var(--light-border);
-}
-
-th {
-    background: var(--light-soft);
-}
-
-body.dark th {
-    background: var(--dark-soft);
-    color: #fff;
-}
-
-body.dark td {
-    border-color: var(--dark-border);
-}
-
-/* ============================================================
-   TABS (Apple kompakt)
-   ============================================================ */
-
-.tabs {
-    display: flex;
-    gap: 10px;
-    margin: 20px 0;
-    flex-wrap: wrap;
-}
-
-.tab-btn,
-.pdf-btn,
-.dark-toggle,
-.lang-btn {
-    font-size: 20px;
-    padding: 10px 10px;
-    border-radius: 8px;
-    background: var(--light-soft);
-    color: var(--light-text);
-    border: 0.5px solid var(--light-border);
-
-    box-shadow:
-        0 0.3px 0.5px rgba(0,0,0,0.04),
-        0 1px 2px rgba(0,0,0,0.06),
-        0 4px 12px rgba(0,0,0,0.08);
-
-    transition: background 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.tab-btn:hover,
-.pdf-btn:hover,
-.dark-toggle:hover,
 .lang-btn:hover {
-    background: var(--light-hover);
     transform: translateY(-2px);
     box-shadow:
         0 0.5px 1px rgba(0,0,0,0.06),
@@ -568,96 +42,457 @@ body.dark td {
         0 8px 20px rgba(0,0,0,0.12);
 }
 
-.tab-btn.active {
-    background: var(--light-card);
-    border-color: var(--light-border);
+.lang-btn.active {
+    transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-/* Farbige Tabs */
-.excel-tab.active {
-    background: var(--excel-color);
-    border-color: var(--excel-color);
-    color: white;
+/* ------------------------------------------------------------
+   TAB CONTENT FADE (Opacity + Transform)
+   ------------------------------------------------------------ */
+
+.tab-content {
+    opacity: 1;
+    transition: opacity 0.35s ease;
 }
 
-.word-tab.active {
-    background: var(--word-color);
-    border-color: var(--word-color);
-    color: white;
+.tab-content.hidden {
+    opacity: 0;
 }
 
-.pp-tab.active {
-    background: var(--pp-color);
-    border-color: var(--pp-color);
-    color: white;
+/* ------------------------------------------------------------
+   SMOOTH SCROLLING (Apple-like)
+   ------------------------------------------------------------ */
+
+html {
+    scroll-behavior: smooth;
 }
 
-.science-tab.active {
-    background: var(--word-color);
-    border-color: var(--word-color);
-    color: white;
+/* ------------------------------------------------------------
+   BUTTON ACTIVE PRESS EFFECT
+   ------------------------------------------------------------ */
+
+.btn-press:active,
+.tab-btn:active,
+.pdf-btn:active,
+.lang-btn:active,
+.dark-toggle:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
 }
 
-/* Icons in Tabs */
+/* ------------------------------------------------------------
+   TABLE CAPTION ACTIVE PRESS
+   ------------------------------------------------------------ */
+
+table.collapsible > caption:active {
+    transform: scale(0.98);
+}
+
+/* ------------------------------------------------------------
+   SEARCH HIGHLIGHT FADE-IN
+   ------------------------------------------------------------ */
+
+mark.search-highlight {
+    animation: highlightFade 0.6s ease;
+}
+
+@keyframes highlightFade {
+    from { background: #005fcc; }
+    to   { background: #007aff; }
+}
+
+/* ------------------------------------------------------------
+   COPY BUTTON CLICK FEEDBACK
+   ------------------------------------------------------------ */
+
+.copy-btn:active {
+    transform: translateY(-50%) scale(0.92);
+    opacity: 1;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH LANGUAGE SWITCHER TRANSITIONS
+   ------------------------------------------------------------ */
+
+.lang-switch {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lang-switch.fade-in {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: langFade 0.35s ease forwards;
+}
+
+@keyframes langFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TAB BUTTON ICON TRANSITIONS
+   ------------------------------------------------------------ */
+
 .tab-btn img,
 .tab-btn svg {
-    width: 16px;
-    height: 16px;
-    padding: 0 5px 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
 }
+
+.tab-btn:hover img,
+.tab-btn:hover svg {
+    transform: scale(1.08);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE ICON TRANSITIONS
+   ------------------------------------------------------------ */
+
+body.dark table caption::before {
+    transition: filter 0.25s ease;
+}
+
+body.dark table caption:hover::before {
+    filter: brightness(1.35) contrast(1.15);
+}
+
+/* ------------------------------------------------------------
+   TABLE BORDER SOFT TRANSITION
+   ------------------------------------------------------------ */
+
+table,
+th,
+td {
+    transition: border-color 0.25s ease;
+}
+
+/* ------------------------------------------------------------
+   SEARCH RESET BUTTON SMOOTH EFFECT
+   ------------------------------------------------------------ */
+
+.search-reset {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-reset:hover {
+    transform: translateY(-1px);
+}
+
+body.dark .search-reset:hover {
+    background: #555;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TABLE CONTAINER FADE-IN
+   ------------------------------------------------------------ */
+
+.table-container {
+    opacity: 0;
+    animation: tableFade 0.45s ease forwards;
+}
+
+@keyframes tableFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH CATEGORY TITLE APPEAR
+   ------------------------------------------------------------ */
+
+.category-title {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: categoryFade 0.4s ease forwards;
+}
+
+@keyframes categoryFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH SCROLL TO TOP (if used)
+   ------------------------------------------------------------ */
+
+.scroll-top {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top.hide {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ------------------------------------------------------------
+   OPTIONAL: BUTTON GLOW ON ACTIVE TAB
+   ------------------------------------------------------------ */
+
+.tab-btn.active.glow {
+    box-shadow:
+        0 0 0 3px rgba(0,122,255,0.15),
+        0 0 12px rgba(0,122,255,0.25);
+}
+
+/* ------------------------------------------------------------
+   OPTIONAL: SMOOTH APPEAR FOR NOTES
+   ------------------------------------------------------------ */
+
+p.note {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: noteFade 0.35s ease forwards;
+}
+
+@keyframes noteFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH BORDER RADIUS TRANSITIONS (Apple subtle)
+   ------------------------------------------------------------ */
+
+table,
+.tab-btn,
+.pdf-btn,
+.lang-btn,
+.dark-toggle,
+.search-field {
+    transition: border-radius 0.25s ease;
+}
+
+.rounded:hover {
+    border-radius: 12px;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH ICON ROTATION (Collapsible Arrow)
+   ------------------------------------------------------------ */
+
+table.collapsible > caption::after {
+    transition: transform 0.25s ease;
+}
+
+table.collapsible.collapsed > caption::after {
+    transform: rotate(-90deg);
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TABLE WIDTH ADJUSTMENTS (non-critical)
+   ------------------------------------------------------------ */
+
+table {
+    transition: width 0.25s ease;
+}
+
+/* ------------------------------------------------------------
+   SMOOTH FLAG ICON TRANSITIONS
+   ------------------------------------------------------------ */
 
 .lang-btn img {
-    width: 16px;
-    height: 16px;
+    transition: transform 0.25s ease, filter 0.25s ease;
 }
 
+.lang-btn:hover img {
+    transform: scale(1.12);
+}
+
+/* Dark Mode Flag Icons */
+body.dark .lang-btn img {
+    filter: brightness(0.85);
+}
+
+body.dark .lang-btn:hover img {
+    filter: brightness(1.05);
+}
+
+/* ------------------------------------------------------------
+   SMOOTH NAVBAR APPEAR (optional)
+   ------------------------------------------------------------ */
+
+.navbar {
+    opacity: 0;
+    animation: navbarFade 0.45s ease forwards;
+}
+
+@keyframes navbarFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TAB BUTTON GROUP APPEAR
+   ------------------------------------------------------------ */
+
+.tab-buttons {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: tabButtonsFade 0.45s ease forwards;
+}
+
+@keyframes tabButtonsFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------
+   GLOBAL BODY FADE-IN
+   ------------------------------------------------------------ */
+
+body {
+    opacity: 0;
+    animation: bodyFade 0.55s ease forwards;
+}
+
+@keyframes bodyFade {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------------------------------------
+   SMOOTH TRANSITION FOR CUSTOM PROPERTIES
+   ------------------------------------------------------------ */
+
+:root,
+body.dark {
+    transition:
+        --light-card 0.35s ease,
+        --light-soft 0.35s ease,
+        --light-hover 0.35s ease,
+        --light-border 0.35s ease,
+        --light-text 0.35s ease,
+        --dark-card 0.35s ease,
+        --dark-soft 0.35s ease,
+        --dark-hover 0.35s ease,
+        --dark-border 0.35s ease,
+        --dark-text 0.35s ease;
+}
 
 /* ============================================================
-   SEARCH FIELD
+   LAZY.CSS — FINALER TEIL
    ============================================================ */
 
-.search-field {
-    padding: 6px 12px;
-    border-radius: 6px;
-    background: var(--light-card);
-    color: var(--light-text);
-    border: 0.5px solid var(--light-border);
+/* ------------------------------------------------------------
+   DARK MODE BUTTON EFFECTS
+   ------------------------------------------------------------ */
 
-    box-shadow:
-        0 0.3px 0.5px rgba(0,0,0,0.04),
-        0 1px 2px rgba(0,0,0,0.06),
-        0 4px 12px rgba(0,0,0,0.08);
-
-    transition: border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.search-field:focus {
-    border-color: #007aff;
-    transform: translateY(-2px);
-}
-
-/* Search Highlight */
-mark.search-highlight {
-    background: #007aff;
-    color: white;
-    padding: 0 2px;
-    border-radius: 2px;
-}
-
-/* ============================================================
-   KBD
-   ============================================================ */
-
-kbd {
-    background: #eee;
-    padding: 2px 4px;
-    border-radius: 4px;
-    border: 1px solid #bbb;
-}
-
-body.dark kbd {
+body.dark .tab-btn,
+body.dark .pdf-btn,
+body.dark .dark-toggle,
+body.dark .lang-btn {
     background: var(--dark-soft);
     border-color: var(--dark-border);
-    color: #fff;
+    color: var(--dark-text);
 }
 
+body.dark .tab-btn:hover,
+body.dark .pdf-btn:hover,
+body.dark .dark-toggle:hover,
+body.dark .lang-btn:hover {
+    background: var(--dark-hover);
+    transform: translateY(-2px);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 2px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE SEARCH FIELD FOCUS EFFECT
+   ------------------------------------------------------------ */
+
+body.dark .search-field:focus {
+    box-shadow:
+        0 0 0 3px rgba(0,122,255,0.25),
+        0 0 12px rgba(0,122,255,0.35);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE TABLE HOVER EFFECT
+   ------------------------------------------------------------ */
+
+body.dark table tbody tr:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* ------------------------------------------------------------
+   TABLE CAPTION HOVER SHADOW (Apple subtle)
+   ------------------------------------------------------------ */
+
+table.collapsible > caption {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+table.collapsible > caption:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 3px 6px rgba(0,0,0,0.12);
+    transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------
+   DARK MODE CAPTION HOVER EFFECTS
+   ------------------------------------------------------------ */
+
+body.dark table.collapsible > caption:hover {
+    background: var(--dark-hover);
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 3px 6px rgba(0,0,0,0.55),
+        0 4px 12px rgba(0,0,0,0.65);
+    transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------
+   ICON GLOW (Apple style)
+   ------------------------------------------------------------ */
+
+.icon-glow:hover {
+    filter: drop-shadow(0 0 4px rgba(0,122,255,0.45));
+}
+
+body.dark .icon-glow:hover {
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
+}
+
+/* ------------------------------------------------------------
+   TABLE SOFT SHADOW ON HOVER (Apple subtle)
+   ------------------------------------------------------------ */
+
+.table-hover:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.08),
+        0 3px 6px rgba(0,0,0,0.12),
+        0 6px 14px rgba(0,0,0,0.14);
+    transform: translateY(-1px);
+}
+
+body.dark .table-hover:hover {
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.40),
+        0 3px 6px rgba(0,0,0,0.55),
+        0 6px 14px rgba(0,0,0,0.65);
+}
