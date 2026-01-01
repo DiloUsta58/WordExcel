@@ -45,7 +45,7 @@ body {
 /* NAVBAR THEME COLORS */
 .navbar.excel   { --theme-border: #217346; } /* Grün */
 .navbar.word    { --theme-border: #1565c0; } /* Blau */
-.navbar.science { --theme-border: #b7472a; } /* Orange */
+.navbar.science { --theme-border: #1565c0; } /* Orange */
 
 
 /* Theme-Klassen */
