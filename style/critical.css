@@ -732,8 +732,10 @@ table td:first-child {
 @media print {
 
     body {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: black !important;
     }
 
     .navbar,
@@ -749,7 +751,36 @@ table td:first-child {
         break-inside: avoid;
         margin-bottom: 20px;
     }
+    /* Dark-Mode komplett neutralisieren (Mobile-Fix) */
+    body.dark,
+    body.dark * {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #000000 !important;
+    }
 
+    /* KBD im Print */
+    kbd {
+        background: #eee !important;
+        color: #000 !important;
+        border-color: #bbb !important;
+    }
+
+    /* Watermark */
+    body::after {
+        content: "DiloUsta58";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-30deg);
+        font-size: 80px;
+        font-weight: bold;
+        color: rgba(150, 150, 150, 0.15);
+        pointer-events: none;
+        z-index: 9999;
+        white-space: nowrap;
+    }
+    /* Print Header Layout PRINT WATERMARK */
     #printHeader {
         display: flex !important;
         align-items: center;
@@ -757,42 +788,20 @@ table td:first-child {
         padding: 20px 0;
         border-bottom: 2px solid #ccc;
         margin-bottom: 20px;
+        background: white !important;
+        color: black !important;
     }
 
     #printHeader img {
         height: 50px;
         width: auto;
     }
-
-    body.dark {
-        background: #1a1a1a !important;
-        color: #e6e6e6 !important;
-    }
-
-    body:not(.dark) {
-        background: #ffffff !important;
-        color: #000000 !important;
-    }
-
-    body.dark kbd {
-        background: #2a2a2a !important;
-        color: #fff !important;
-        border-color: #555 !important;
-    }
-
-    body:not(.dark) kbd {
-        background: #eee !important;
-        color: #000 !important;
-        border-color: #bbb !important;
-    }
 }
-/* Print Header Layout */
-/* PRINT WATERMARK */
-#printHeader {
-    display: none;
-}
+
+
 
 @media print {
+
     #printHeader {
         display: flex !important;
         align-items: center;
@@ -801,10 +810,6 @@ table td:first-child {
         border-bottom: 2px solid #ccc;
         margin-bottom: 20px;
     }
-}
-
-
-@media print {
     body::after {
         content: "DiloUsta58";
         position: fixed;
@@ -819,6 +824,9 @@ table td:first-child {
         white-space: nowrap;
     }
 }
+
+
+
 
 /* ------------------------------------------------------------
    MOBILE (Layout only)
@@ -937,6 +945,7 @@ table td:first-child {
         float: right;
     }
 }
+
 
 /* ============================================================
    APPLE CARD TABLE BASE (Layout only)
