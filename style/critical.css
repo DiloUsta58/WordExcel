@@ -731,12 +731,20 @@ table td:first-child {
 
 @media print {
 
-    body {
-        background: white !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        color: black !important;
-    }
+    /* Dark-Mode komplett neutralisieren (Mobile-Fix) */
+    body,
+        body * {
+            background: #ffffff !important;
+            color: #000000 !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body.dark,
+        body.dark * {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
 
     .navbar,
     .tab-buttons,
@@ -751,13 +759,7 @@ table td:first-child {
         break-inside: avoid;
         margin-bottom: 20px;
     }
-    /* Dark-Mode komplett neutralisieren (Mobile-Fix) */
-    body.dark,
-    body.dark * {
-        background: #ffffff !important;
-        color: #000000 !important;
-        border-color: #000000 !important;
-    }
+
 
     /* KBD im Print */
     kbd {
@@ -798,7 +800,10 @@ table td:first-child {
     }
 }
 
-
+/* PRINT WATERMARK */
+#printHeader {
+    display: none;
+}
 
 @media print {
 
